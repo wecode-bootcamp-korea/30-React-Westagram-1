@@ -3,3 +3,9 @@
 *:after {
   box-sizing: border-box;
 }
+
+$background-color: #fafafa;
+
+@mixin blur {
+  opacity: 0.5;
+}

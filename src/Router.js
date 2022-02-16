@@ -1,17 +1,17 @@
-import react from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import react from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import LoginPark from "./pages/cheoljinPark/Login/Login";
-import MainPark from "./pages/cheoljinPark/Main/Main";
+import LoginPark from './pages/cheoljinPark/Login/Login';
+import MainPark from './pages/cheoljinPark/Main/Main';
 
-import LoginKim from "./pages/hyejinKim/Login/Login";
-import MainKim from "./pages/hyejinKim/Main/Main";
+import LoginKim from './pages/hyejinKim/Login/Login';
+import MainKim from './pages/hyejinKim/Main/Main';
 
-import LoginLee from "./pages/sangminLee/Login/Login";
-import MainLee from "./pages/sangminLee/Main/Main";
+import LoginLee from './pages/sangminLee/Login/Login';
+import MainLee from './pages/sangminLee/Main/Main';
 
-import LoginHan from "./pages/younghyunHan/Login/Login";
-import MainHan from "./pages/younghyunHan/Main/Main";
+import LoginHan from './pages/younghyunHan/Login/Login';
+import MainHan from './pages/younghyunHan/Main/Main';
 
 function Router() {
   return (
