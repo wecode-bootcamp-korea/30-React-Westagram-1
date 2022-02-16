@@ -1,4 +1,5 @@
 import './Main.scss';
+import '../../../styles/variables.scss';
 
 function Main() {
   return <></>;

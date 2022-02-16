@@ -1,8 +1,5 @@
 .eslintcache
 
-import ../../../asses/images -> scss
-import /images/cheoljinPark/ -> js
-
 # dependencies
 /node_modules
 /.pnp
