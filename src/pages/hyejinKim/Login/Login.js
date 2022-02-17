@@ -1,6 +1,4 @@
 import './Login.scss';
-import '../../../styles/scss/common.scss';
-import '../../../styles/scss/reset.scss';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 

@@ -1,0 +1,13 @@
+.feedsContainer {
+  display: flex;
+  width: 1000px;
+  padding-left: 80px;
+  padding-top: 60px;
+
+  .feeds {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    padding: 60px 20px;
+  }
+}

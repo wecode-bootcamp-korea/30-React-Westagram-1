@@ -1,0 +1,9 @@
+$background-color: #fafafa;
+
+@mixin logoFont {
+  font-family: 'Lobster', cursive;
+}
+
+@mixin blur {
+  opacity: 0.5;
+}

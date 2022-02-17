@@ -1,0 +1,147 @@
+.feed {
+  background-color: white;
+  border: 1px solid #e9ecef;
+
+  .profileContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+
+    .dotMenu {
+      width: 25px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      img {
+        border-radius: 100px;
+        width: 35px;
+      }
+
+      .profile-info {
+        padding-left: 15px;
+        font-size: 12px;
+
+        .profile-bottom {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  .feedImage {
+    img {
+      width: 100%;
+    }
+  }
+
+  .feedImageBottom {
+    padding: 10px 20px;
+
+    .feedMenu {
+      display: flex;
+      justify-content: space-between;
+
+      img {
+        height: 25px;
+      }
+
+      .feedMenu-left {
+        img,
+        div {
+          margin-right: 10px;
+        }
+        .postLikeBtn {
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+        }
+        .postLikeBtn-white {
+          background-image: url('../../../../../assets/images/hyejinKim/heart_like.png');
+          background-size: cover;
+        }
+        .postLikeBtn-color {
+          background-image: url('../../../../../assets/images/hyejinKim/heart_like_color.png');
+          background-size: cover;
+        }
+      }
+    }
+
+    .likeCount {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 100%;
+      }
+    }
+
+    .postArea {
+      .morePost {
+        display: inline-block;
+        margin-left: 5px;
+        color: #a2a2a2;
+      }
+    }
+
+    .commentPrint {
+      .comment-one {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .commentUser {
+          margin-right: 5px;
+        }
+
+        .commentLikeBtn {
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+        }
+
+        .commentLikeBtn-white {
+          background-image: url('../../../../../assets/images/hyejinKim/heart_like.png');
+          background-size: cover;
+        }
+
+        .commentLikeBtn-color {
+          background-image: url('../../../../../assets/images/hyejinKim/heart_like_color.png');
+          background-size: cover;
+        }
+      }
+    }
+
+    .postTime {
+      color: #a2a2a2;
+      font-weight: bold;
+    }
+  }
+
+  .commentWrite {
+    display: flex;
+    padding: 10px 5px 10px 20px;
+    border: 1px solid #e9ecef;
+
+    input {
+      flex: 9;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      flex: 1;
+      border: none;
+      background-color: white;
+      color: #0095f6;
+      font-weight: bold;
+    }
+  }
+}
