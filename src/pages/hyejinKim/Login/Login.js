@@ -11,18 +11,18 @@ function Login() {
   // 1. () 안에 초기값 안 적으면?
   // 2. 현재 state를 가져오는 경우는 언제인지? 콜백함수가 인자로 들어오면??
   // 3. 제어 컴포넌트랑 무슨 차이지?
-  const [idValue, setIdValue] = useState();
-  const [pwValue, setPwValue] = useState();
 
-  const handleIdInput = e => {
-    setIdValue(e.target.value);
-    const isValidId = checkId(idValue);
-  };
-
-  const handlePwInput = e => {
-    setPwValue(e.target.value);
-    const pwValidId = checkId(pwValue);
-  };
+  /* const [values, setValues] = useState({
+    id: '',
+    pw: '',
+  });
+    const handleInput = e => {
+    const { name, value } = e.target;
+    setValues((preValues) => {
+      ...preValues,
+      [name]: value,
+    })
+  }; */
 
   const checkId = value => {
     if (value.includes('@')) {
@@ -49,17 +49,18 @@ function Login() {
         <div className="loginWrapper">
           <input
             id="id"
+            name="id"
             type="text"
             className="textField"
             placeholder="전화번호, 사용자 이름 또는 이메일"
-            onChange={handleIdInput}
+            onChange={handleInput}
           />
           <input
             id="password"
             type="password"
             className="textField"
             placeholder="비밀번호"
-            onChange={handlePwInput}
+            onChange={handleInput}
           />
           <button
             type="button"
