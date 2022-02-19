@@ -9,7 +9,7 @@ function Comment({ content }) {
       </p>
       <div
         className="commentLikeBtn commentLikeBtn-white"
-        onClick="commentLike(event)"
+        // onClick="commentLike(event)"
       />
     </div>
   );
