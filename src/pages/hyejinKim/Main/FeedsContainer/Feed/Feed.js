@@ -9,6 +9,7 @@ function Feed() {
     let nextContent = e.target.value;
     if (e.code === 'Enter') {
       setCmtContents([...cmtContents, nextContent]);
+      e.target.value = '';
     }
   };
 
