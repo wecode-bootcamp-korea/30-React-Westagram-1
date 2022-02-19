@@ -91,34 +91,6 @@
       }
     }
 
-    .commentPrint {
-      .comment-one {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .commentUser {
-          margin-right: 5px;
-        }
-
-        .commentLikeBtn {
-          display: inline-block;
-          width: 15px;
-          height: 15px;
-        }
-
-        .commentLikeBtn-white {
-          background-image: url('../../../../../assets/images/hyejinKim/heart_like.png');
-          background-size: cover;
-        }
-
-        .commentLikeBtn-color {
-          background-image: url('../../../../../assets/images/hyejinKim/heart_like_color.png');
-          background-size: cover;
-        }
-      }
-    }
-
     .postTime {
       color: #a2a2a2;
       font-weight: bold;
@@ -130,13 +102,13 @@
     padding: 10px 5px 10px 20px;
     border: 1px solid #e9ecef;
 
-    input {
+    .commentInput {
       flex: 9;
       border: none;
       outline: none;
     }
 
-    button {
+    .commentBtn {
       flex: 1;
       border: none;
       background-color: white;

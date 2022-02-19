@@ -75,6 +75,7 @@ function Login() {
           />
           <input
             id="password"
+            name="password"
             type="password"
             className="textField"
             placeholder="비밀번호"
@@ -91,7 +92,7 @@ function Login() {
           </button>
         </div>
         <div className="links">
-          <a href="./main.html">비밀번호를 잊으셨나요?</a>
+          <a href="./main-kim.html">비밀번호를 잊으셨나요?</a>
         </div>
       </form>
     </div>

@@ -1,6 +1,22 @@
 import './Feed.scss';
+import Comment from './Comment';
+import { useState } from 'react';
 
 function Feed() {
+  const [cmtContents, setCmtContents] = useState([]);
+
+  const onKeyPress = e => {
+    let nextContent = e.target.value;
+    if (e.code === 'Enter') {
+      setCmtContents([...cmtContents, nextContent]);
+    }
+  };
+
+  // const handleBtn = e => {
+  //   let nextContent = e.target.value;
+  //   setCmtContents([...cmtContents, nextContent]);
+  // };
+
   return (
     <article className="feed">
       <div className="profileContainer">
@@ -59,21 +75,24 @@ function Feed() {
           <b className="morePost">더 보기</b>
         </p>
         <div className="commentPrint">
-          <div className="comment-one">
-            <p>
-              <b className="commentUser">canon_mj</b>엄청 재밌었지~~
-            </p>
-            <div
-              className="commentLikeBtn commentLikeBtn-white"
-              onClick="commentLike(event)"
-            />
-          </div>
+          {cmtContents.map((content, index) => {
+            return (
+              <div key={index}>
+                <Comment content={content} />
+              </div>
+            );
+          })}
         </div>
         <p className="postTime">42분 전</p>
       </div>
       <div className="commentWrite">
-        <input id="comment" type="text" placeholder="댓글 달기..." />
-        <button id="commentBtn" type="submit">
+        <input
+          className="commentInput"
+          type="text"
+          placeholder="댓글 달기..."
+          onKeyPress={onKeyPress}
+        />
+        <button className="commentBtn" type="submit">
           게시
         </button>
       </div>
