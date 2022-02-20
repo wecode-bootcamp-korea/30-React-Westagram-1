@@ -1,18 +1,18 @@
 .nav {
-  background-color: white;
-  width: 100%;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #dbdbdb;
   position: fixed;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px solid #dbdbdb;
   z-index: 2;
 
   .navbar {
-    background-color: white;
     display: flex;
     align-items: center;
     width: 1200px;
     padding: 20px 40px;
+    background-color: white;
 
     .navbarLeft1 {
       display: flex;
@@ -20,9 +20,9 @@
       justify-content: space-between;
 
       .navbarLeft1Inner {
-        align-items: center;
         display: flex;
         flex: 5;
+        align-items: center;
 
         .logoImg {
           border-right: 1px solid black;
@@ -31,24 +31,24 @@
 
         .logoFont {
           font-family: 'Lobster', cursive;
-          text-decoration: none;
           color: black;
+          text-decoration: none;
         }
       }
     }
 
     .navbarLeft2 {
-      flex: 5;
       display: flex;
+      flex: 5;
       justify-content: flex-end;
 
       .searchWrapper {
-        border: 1px solid lightgray;
-        padding: 5px 0px;
-        width: 180px;
-        background-color: #fafafa;
         display: flex;
         justify-content: center;
+        width: 180px;
+        padding: 5px 0px;
+        background-color: #fafafa;
+        border: 1px solid lightgray;
 
         input {
           width: 50px;
@@ -68,8 +68,8 @@
     .navbarItem {
       display: inline-block;
       height: 25px;
-      font-size: 22px;
       margin-right: 10px;
+      font-size: 22px;
     }
 
     .navIcon {

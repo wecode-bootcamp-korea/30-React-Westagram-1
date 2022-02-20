@@ -1,6 +1,18 @@
 import './Login.scss';
+import React, { useState } from 'react';
+import { MdSettingsInputSvideo } from 'react-icons/md';
 
-const Login = () => {
+function Login() {
+  const [inputId, setInputId] = useState('');
+  const [inputPw, setInputPw] = useState('');
+
+  const handleIdInput = event => {
+    setInputId(event.target.value);
+  };
+  const handlePwInput = event => {
+    setInputPw(event.target.value);
+  };
+
   return (
     <div className="westagramLogin">
       <section className="loginContainer">
@@ -11,8 +23,14 @@ const Login = () => {
             className="login"
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
+            onChange={handleIdInput}
           />
-          <input className="password" type="password" placeholder="비밀번호" />
+          <input
+            className="password"
+            type="password"
+            placeholder="비밀번호"
+            onChange={handlePwInput}
+          />
         </div>
 
         <button className="loginButton">로그인</button>
@@ -27,6 +45,6 @@ const Login = () => {
       </section>
     </div>
   );
-};
+}
 
 export default Login;
