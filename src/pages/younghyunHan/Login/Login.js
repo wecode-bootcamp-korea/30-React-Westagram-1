@@ -5,6 +5,8 @@ import { useState } from 'react';
 function Login() {
   const [state, setState] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
+  const [disabled, setDisabled] = useState(true);
+  const [style, setStyle] = useState({ opacity: 0.5, cursor: 'default' });
 
   function handleIdInput(event) {
     if (event.target.type === 'text') {
@@ -12,7 +14,35 @@ function Login() {
     } else if (event.target.type === 'password') {
       setPasswordValue(event.target.value);
     }
+    handleButton();
   }
+
+  const checkId = idValue => {
+    return idValue.includes('@') ? true : false;
+  };
+
+  const checkPw = pwValue => {
+    return pwValue.length >= 5 ? true : false;
+  };
+
+  const handleButton = () => {
+    const isValidId = checkId(state);
+    const isValidPw = checkPw(passwordValue);
+
+    if (isValidId && isValidPw) {
+      buttonColor(true);
+    } else {
+      buttonColor(false);
+    }
+  };
+
+  const buttonColor = btnValid => {
+    setDisabled(!btnValid);
+    setStyle({
+      opacity: btnValid ? 1 : 0.5,
+      cursor: btnValid ? 'pointer' : 'default',
+    });
+  };
 
   const navigate = useNavigate();
 
@@ -36,7 +66,13 @@ function Login() {
           placeholder="비밀번호"
           onChange={handleIdInput}
         />
-        <button className="loginButton" onClick={goToMain}>
+        <button
+          type="submit"
+          className="loginButton"
+          onClick={goToMain}
+          disabled={disabled}
+          style={style}
+        >
           로그인
         </button>
         <div className="findPassword">
