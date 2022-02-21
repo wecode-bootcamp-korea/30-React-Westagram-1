@@ -2,7 +2,7 @@ import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
 import '../../../styles/variables.scss';
 import { useState } from 'react';
-// import Comment from './Comment';
+import Comment from './Comment';
 
 function Main() {
   const [cmtContents, setCmtContents] = useState([]);
@@ -62,10 +62,7 @@ function Main() {
             {cmtContents.map((content, index) => {
               return (
                 <div key={index}>
-                  <p>
-                    <strong className="commentMan">man01</strong>
-                    {content}
-                  </p>
+                  <Comment content={content} />
                 </div>
               );
             })}

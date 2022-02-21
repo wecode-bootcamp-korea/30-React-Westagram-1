@@ -1,11 +1,11 @@
 import './Comment.scss';
 
-function Comment(props){
+function Comment({ content }) {
   return (
     <div className="comment">
       <p>
         <strong className="commentMan">man01</strong>
-        {props.content}
+        {content}
       </p>
     </div>
   );
