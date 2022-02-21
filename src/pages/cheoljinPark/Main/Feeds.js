@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import './Feeds.scss';
 import { AiTwotoneHeart } from 'react-icons/ai';
 import { BiCommentDetail } from 'react-icons/bi';
@@ -5,6 +7,28 @@ import { MdOutlineIosShare } from 'react-icons/md';
 import { BsThreeDots, BsBookmarkFill } from 'react-icons/bs';
 
 function Feeds() {
+  let [commentText, setCommentText] = useState('');
+  let [commentList, setCommentList] = useState([]);
+
+  const commentChangeHandle = event => {
+    setCommentText(event.target.value);
+  };
+
+  const addComment = comment => {
+    setCommentList(commentList => [...commentList, comment]);
+  };
+
+  const commentUpload = event => {
+    addComment(commentText);
+    setCommentText('');
+  };
+
+  const commentEnterUpload = event => {
+    if (event.key === 'Enter') {
+      addComment(commentText);
+      setCommentText('');
+    }
+  };
   return (
     <div className="feeds">
       <article className="article">
@@ -61,10 +85,24 @@ function Feeds() {
           <div className="blur timestamp">54분 전</div>
         </div>
         <div className="feed-commentbox">
-          <ul className="feed-commentlist" />
+          <ul className="feed-commentlist">
+            {commentList.map((comment, idx) => (
+              <li key={idx} className="comment-fadein">
+                <span className="newcomment-id">Bueong</span>
+                <span className="newcomment-text">{comment}</span>
+              </li>
+            ))}
+          </ul>
           <div className="feed-comment">
-            <input className="comment-text" placeholder="댓글 달기..." />
-            <button className="comment-add blur">게 시</button>
+            <input
+              className="comment-text"
+              placeholder="댓글 달기..."
+              onChange={commentChangeHandle}
+              onKeyDown={commentEnterUpload}
+            />
+            <button className="comment-add blur" onClick={commentUpload}>
+              게 시
+            </button>
           </div>
         </div>
       </article>

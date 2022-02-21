@@ -19,14 +19,14 @@ function LoginForm({
     setLoginPw(event.target.value);
   };
 
-  const loginInspector = e => {
+  const loginInspector = () =>
     loginId.includes('@') && loginPw.length > 4
       ? setLoginCheck(true)
       : setLoginCheck(false);
-  };
 
-  const sendMain = e =>
+  const sendMain = () =>
     loginCheck ? navigate('/main-park') : alert('정신 차리세요');
+
   return (
     <form className="login-form">
       <input

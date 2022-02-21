@@ -1,3 +1,5 @@
+import React, { useState } from 'react';
+
 import './Main.scss';
 import '../../../styles/variables.scss';
 import Nav from '../../../components/Nav/Nav';
