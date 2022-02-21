@@ -1,17 +1,21 @@
 import './Feed.scss';
-import Comment from './Comment';
-import { useState } from 'react';
+import CommentList from './CommentList';
 
-function Feed() {
-  const [cmtContents, setCmtContents] = useState([]);
-
-  const onKeyPress = e => {
-    let nextContent = e.target.value;
-    if (e.code === 'Enter') {
-      setCmtContents([...cmtContents, nextContent]);
-      e.target.value = '';
-    }
-  };
+function Feed({
+  userName,
+  address,
+  firstLikeUser,
+  likeCount,
+  content,
+  imgURL,
+}) {
+  // const onKeyPress = e => {
+  //   let nextContent = e.target.value; // 지금 내가 input에 친 댓글 내용 저장
+  //   if (e.code === 'Enter') {
+  //     setCmtContents([...cmtContents, nextContent]);
+  //     e.target.value = ''; // 빈 문자열로 input 초기화
+  //   }
+  // };
 
   // const handleBtn = e => {
   //   let nextContent = e.target.value;
@@ -27,8 +31,8 @@ function Feed() {
             src="/images/hyejinKim/profiles/profile00.jpg"
           />
           <div className="profile-info">
-            <h3 className="profile-id">tyui3185</h3>
-            <h3 className="profile-bottom">서울, 세운상가</h3>
+            <h3 className="profile-id">{userName}</h3>
+            <h3 className="profile-bottom">{address}</h3>
           </div>
         </div>
         <img
@@ -38,7 +42,7 @@ function Feed() {
         />
       </div>
       <div className="feedImage">
-        <img alt="feedImg" src="/images/hyejinKim/feedImage01.png" />
+        <img alt="feedImg" src={imgURL} />
       </div>
       <div className="feedImageBottom">
         <div className="feedMenu">
@@ -64,26 +68,16 @@ function Feed() {
             src="/images/hyejinKim/profiles/profile04.png"
           />
           <p>
-            <b id="likeUser">aineworld</b>님 외<b id="likeUserCnt">10명</b>이
-            좋아합니다
+            <b id="likeUser">{firstLikeUser}</b>님 외
+            <b id="likeUserCnt"> {likeCount}명</b>이 좋아합니다
           </p>
         </div>
         <p className="postArea">
-          <b id="postUser">tyui3185 </b>
-          <span className="postContent">
-            위코드 사람들과 함께 산책 중입니다 어때요 룰루랄라~~
-          </span>
+          <b id="postUser">{userName} </b>
+          <span className="postContent">{content}</span>
           <b className="morePost">더 보기</b>
         </p>
-        <div className="commentPrint">
-          {cmtContents.map((content, index) => {
-            return (
-              <div key={index}>
-                <Comment content={content} />
-              </div>
-            );
-          })}
-        </div>
+        <CommentList />
         <p className="postTime">42분 전</p>
       </div>
       <div className="commentWrite">
@@ -91,7 +85,7 @@ function Feed() {
           className="commentInput"
           type="text"
           placeholder="댓글 달기..."
-          onKeyPress={onKeyPress}
+          // onKeyPress={onKeyPress}
         />
         <button className="commentBtn" type="submit">
           게시

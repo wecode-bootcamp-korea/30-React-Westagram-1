@@ -1,11 +1,11 @@
 import './Comment.scss';
 
-function Comment({ content }) {
+function Comment({ name, comment }) {
   return (
     <div className="comment">
       <p>
-        <b className="commentUser">test01 </b>
-        {content}
+        <b className="commentUser">{name} </b>
+        {comment}
       </p>
       <div
         className="commentLikeBtn commentLikeBtn-white"

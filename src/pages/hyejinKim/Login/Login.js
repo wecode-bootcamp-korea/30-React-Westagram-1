@@ -20,12 +20,12 @@ function Login() {
 
   const handleIdInput = e => {
     setIdValue(e.target.value);
-    handleInput();
+    checkBtnValid();
   };
 
   const handlePwInput = e => {
     setPwValue(e.target.value);
-    handleInput();
+    checkBtnValid();
   };
 
   const checkId = value => {
@@ -36,18 +36,18 @@ function Login() {
     return value.length >= 5 ? true : false;
   };
 
-  const handleInput = () => {
+  const checkBtnValid = () => {
     const isValidId = checkId(idValue); // id 검사
     const isValidPw = checkPw(pwValue); // pw 검사
     // 결과에 따라 버튼 live
     if (isValidId && isValidPw) {
-      handleBtn(true);
+      updateBtnStyle(true);
     } else {
-      handleBtn(false);
+      updateBtnStyle(false);
     }
   };
 
-  const handleBtn = btnValid => {
+  const updateBtnStyle = btnValid => {
     setDisabled(!btnValid); // 반대값
     setStyle({
       opacity: btnValid ? 1 : 0.5,
