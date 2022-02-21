@@ -1,16 +1,22 @@
 import './Login.scss';
 import React, { useState } from 'react';
-import { MdSettingsInputSvideo } from 'react-icons/md';
 
 function Login() {
   const [inputId, setInputId] = useState('');
   const [inputPw, setInputPw] = useState('');
-
+  const [isActive, setIsActive] = useState(false); //초기값 false
+  //input값이 변화가 있을 때마다 value값을 변경해서 useState
   const handleIdInput = event => {
     setInputId(event.target.value);
   };
   const handlePwInput = event => {
     setInputPw(event.target.value);
+  };
+
+  const isPassedLogin = () => {
+    return inputId.includes('@') && inputPw.length > 4
+      ? setIsActive(true)
+      : setIsActive(false);
   };
 
   return (
@@ -20,22 +26,24 @@ function Login() {
 
         <div className="loginWrapper">
           <input
-            className="login"
+            className="inputId"
             type="text"
             placeholder="전화번호, 사용자 이름 또는 이메일"
             onChange={handleIdInput}
+            onKeyUp={isPassedLogin}
           />
           <input
-            className="password"
+            className="inputPw"
             type="password"
             placeholder="비밀번호"
             onChange={handlePwInput}
+            onKeyUp={isPassedLogin}
           />
         </div>
 
-        <button className="loginButton">로그인</button>
-
-        {/* <Link to="/main">메인으로</Link> */}
+        <button className={isActive ? 'activeBtn' : 'unactiveBtn'}>
+          로그인
+        </button>
 
         <footer>
           <a href="" className="text">

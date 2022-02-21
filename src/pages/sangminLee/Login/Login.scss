@@ -55,28 +55,32 @@ input::placeholder {
   color: #999999;
 }
 
-.loginButton {
+button {
   width: 250px;
   height: 30px;
   margin: 10px 0px;
   padding: 5px;
-  background-color: #3494f6;
-  color: white;
   border: none;
   border-radius: 3px;
 }
 
-button:disabled,
-button[disabled] {
-  background-color: #c4e1fb;
+.activeBtn {
+  background: #3494f6;
+  color: #fff;
+}
+
+.unactiveBtn {
+  background: #c4e1fb;
+  color: #fff;
 }
 
 .text {
   font-size: 10px;
   color: #335c86;
-  padding: 100px 0 0 0;
+  padding: auto 0;
 }
 
 a {
   text-decoration: none;
+  height: 10px;
 }
