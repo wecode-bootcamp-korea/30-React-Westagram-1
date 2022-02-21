@@ -1,8 +1,20 @@
 import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
 import '../../../styles/variables.scss';
+import { useState } from 'react';
+// import Comment from './Comment';
 
 function Main() {
+  const [cmtContents, setCmtContents] = useState([]);
+
+  const onKeyPress = event => {
+    let nextContents = event.target.value;
+    if (event.code === 'Enter') {
+      setCmtContents([...cmtContents, nextContents]);
+      event.target.value = '';
+    }
+  };
+
   return (
     <div className="main">
       <Nav />
@@ -47,12 +59,23 @@ function Main() {
               단순 교육업체가 아닌 개발자 커뮤니티입니다. Wecode에서 배우고 저는
               총 5개 회사에서 오퍼를 받았습니다.
             </div>
+            {cmtContents.map((content, index) => {
+              return (
+                <div key={index}>
+                  <p>
+                    <strong className="commentMan">man01</strong>
+                    {content}
+                  </p>
+                </div>
+              );
+            })}
             <span className="postTime">54분 전</span>
             <div className="commentSection">
               <input
                 type="text"
                 placeholder="댓글 달기..."
                 className="comment"
+                onKeyPress={onKeyPress}
               />
               <button className="postButton">게시</button>
             </div>

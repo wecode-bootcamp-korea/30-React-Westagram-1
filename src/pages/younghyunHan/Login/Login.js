@@ -72,8 +72,7 @@ function Login() {
           onClick={goToMain}
           disabled={disabled}
           style={style}
-        >
-          로그인
+        > 로그인
         </button>
         <div className="findPassword">
           <a href="#">비밀번호를 잊으셨나요?</a>
