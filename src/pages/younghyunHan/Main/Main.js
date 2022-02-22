@@ -1,11 +1,12 @@
 import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
 import '../../../styles/variables.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Comment from './Comment';
 
 function Main() {
   const [cmtContents, setCmtContents] = useState([]);
+  const [cmtContLists, setCmtContLists] = useState([]);
 
   const onKeyPress = event => {
     let nextContents = event.target.value;
@@ -14,6 +15,16 @@ function Main() {
       event.target.value = '';
     }
   };
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/younghyunHan/comment.json')
+      .then(res => res.json())
+      .then(data => {
+        setCmtContLists(data);
+      });
+  }, []);
+
+  // console.log(cmtContLists);
 
   return (
     <div className="main">
@@ -59,6 +70,17 @@ function Main() {
               단순 교육업체가 아닌 개발자 커뮤니티입니다. Wecode에서 배우고 저는
               총 5개 회사에서 오퍼를 받았습니다.
             </div>
+            {cmtContLists.map((content, index) => {
+              return (
+                <div key={index}>
+                  <Comment
+                    key={content.id}
+                    userName={content.userName}
+                    content={content.content}
+                  />
+                </div>
+              );
+            })}
             {cmtContents.map((content, index) => {
               return (
                 <div key={index}>
