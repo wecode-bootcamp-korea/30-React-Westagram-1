@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import Comments from './Comments';
 import './Feeds.scss';
 import { AiTwotoneHeart } from 'react-icons/ai';
 import { BiCommentDetail } from 'react-icons/bi';
@@ -10,22 +10,36 @@ function Feeds() {
   let [commentText, setCommentText] = useState('');
   let [commentList, setCommentList] = useState([]);
 
+  useEffect(() => {
+    fetch('http://localhost:3000/data/cheoljinPark/mock.json')
+      .then(res => res.json())
+      .then(data => setCommentList(data));
+  }, []);
+
   const commentChangeHandle = event => {
     setCommentText(event.target.value);
   };
 
   const addComment = comment => {
-    setCommentList(commentList => [...commentList, comment]);
+    setCommentList(commentList => [
+      ...commentList,
+      {
+        userName: 'Bueong',
+        comment: comment,
+      },
+    ]);
   };
 
   const commentUpload = event => {
     addComment(commentText);
+    event.target.value = '';
     setCommentText('');
   };
 
   const commentEnterUpload = event => {
     if (event.key === 'Enter') {
       addComment(commentText);
+      event.target.value = '';
       setCommentText('');
     }
   };
@@ -85,14 +99,7 @@ function Feeds() {
           <div className="blur timestamp">54분 전</div>
         </div>
         <div className="feed-commentbox">
-          <ul className="feed-commentlist">
-            {commentList.map((comment, idx) => (
-              <li key={idx} className="comment-fadein">
-                <span className="newcomment-id">Bueong</span>
-                <span className="newcomment-text">{comment}</span>
-              </li>
-            ))}
-          </ul>
+          <Comments commentList={commentList} />
           <div className="feed-comment">
             <input
               className="comment-text"

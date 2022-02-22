@@ -128,14 +128,15 @@
       flex-direction: column;
       justify-content: space-between;
       padding-top: 10px;
-      height: 150px;
 
       .feed-commentlist {
         margin-left: 10px;
+        overflow: auto;
+        height: 80px;
 
         .comment-fadein {
-          opacity: 1;
-          transition: all 1s;
+          // opacity: 1;
+          // transition: all 1s;
         }
 
         .newcomment-id {
@@ -156,7 +157,6 @@
           width: 90%;
           height: 50px;
           font-size: 14px;
-          overflow: auto;
           border: none;
         }
 
