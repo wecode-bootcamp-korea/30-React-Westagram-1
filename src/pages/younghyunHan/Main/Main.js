@@ -1,104 +1,36 @@
 import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
 import '../../../styles/variables.scss';
+import Article from './Article';
 import { useState, useEffect } from 'react';
-import Comment from './Comment';
 
 function Main() {
-  const [cmtContents, setCmtContents] = useState([]);
-  const [cmtContLists, setCmtContLists] = useState([]);
-
-  const onKeyPress = event => {
-    let nextContents = event.target.value;
-    if (event.code === 'Enter') {
-      setCmtContents([...cmtContents, nextContents]);
-      event.target.value = '';
-    }
-  };
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/younghyunHan/comment.json')
+    fetch('http://localhost:3000/data/younghyunHan/articleData.json')
       .then(res => res.json())
       .then(data => {
-        setCmtContLists(data);
+        setArticles(data);
       });
   }, []);
-
-  // console.log(cmtContLists);
 
   return (
     <div className="main">
       <Nav />
       <main>
         <div className="feeds">
-          <article>
-            <div className="feedTop">
-              <div className="feedTopOne">
-                <div className="profileLogo">wecode</div>
-                <div className="profileName">
-                  <div className="profileNameOne">wecode_bootcamp</div>
-                  <span className="profileNameTwo">Wecode - 위코드</span>
-                </div>
+          {articles.map((content, index) => {
+            return (
+              <div key={index}>
+                <Article
+                  userName={content.userName}
+                  feedImg={content.feedImg}
+                  userMan={content.userMan}
+                />
               </div>
-              <i className="fas fa-ellipsis-h" />
-            </div>
-            <img
-              alt="피드 이미지"
-              className="feedImg"
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            />
-            <div className="feedThree">
-              <div>
-                <i className="far fa-heart" />
-                <i className="far fa-comment" />
-                <i className="fas fa-upload" />
-              </div>
-              <i className="far fa-bookmark" />
-            </div>
-            <div className="feedFour">
-              <img
-                alt="좋아요 누른 사람"
-                className="man"
-                src="https://media.istockphoto.com/photos/smiling-mixed-race-mature-man-on-grey-background-picture-id1319763895?s=612x612"
-              />
-              <span className="feedFourWord">seungyoun_iain</span>
-              &nbsp;외&nbsp;
-              <span className="feedFourWordTwo">4명</span>이 좋아합니다.
-            </div>
-            <div className="feedFive">
-              <span className="feedFiveWord">wecode_bootcamp</span>"위코드는
-              단순 교육업체가 아닌 개발자 커뮤니티입니다. Wecode에서 배우고 저는
-              총 5개 회사에서 오퍼를 받았습니다.
-            </div>
-            {cmtContLists.map((content, index) => {
-              return (
-                <div key={index}>
-                  <Comment
-                    key={content.id}
-                    userName={content.userName}
-                    content={content.content}
-                  />
-                </div>
-              );
-            })}
-            {cmtContents.map((content, index) => {
-              return (
-                <div key={index}>
-                  <Comment content={content} />
-                </div>
-              );
-            })}
-            <span className="postTime">54분 전</span>
-            <div className="commentSection">
-              <input
-                type="text"
-                placeholder="댓글 달기..."
-                className="comment"
-                onKeyPress={onKeyPress}
-              />
-              <button className="postButton">게시</button>
-            </div>
-          </article>
+            );
+          })}
         </div>
         <div className="mainRight">
           <div className="sideOne">
