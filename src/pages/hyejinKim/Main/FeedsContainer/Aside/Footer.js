@@ -1,12 +1,29 @@
+import { INFO_LIST } from './footerData.js';
 import './Footer.scss';
 
 function Footer() {
+  /*
+  const [INFO_LIST, setINFO_LIST] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:3000/data/hyejinKim/footerData.json')
+      .then(res => res.json())
+      .then(data => {
+        setINFO_LIST(data);
+      });
+  }, []);
+*/
   return (
     <footer className="footer">
-      <p>Instagram 정보 · 지원 · 홍보 센터 · API ·</p>
-      <p>채용 정보 · 개인정보처리방침 · 약관 ·</p>
-      <p>디렉터리 · 프로필 · 해시태그 · 언어</p>
-      <p className="copyright">2019 INSTAGRAM</p>
+      <ul>
+        {INFO_LIST.map(info => {
+          return (
+            <li key={info.id}>
+              <a href={info.url}>{info.name}</a>
+            </li>
+          );
+        })}
+        <p className="copyright">2019 INSTAGRAM</p>
+      </ul>
     </footer>
   );
 }

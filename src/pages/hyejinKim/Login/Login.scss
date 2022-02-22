@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .login {
   display: flex;
   justify-content: center;
@@ -14,6 +16,7 @@
       display: inline-block;
       margin-bottom: 40px;
       font-size: 46px;
+      @include logoFont;
     }
 
     .loginWrapper {
@@ -31,15 +34,22 @@
 
       .loginBtn {
         display: inline-block;
-        font-size: 16px;
-        color: white;
-        background-color: #0195f3;
         width: 100%;
-        border-radius: 5px;
-        border: none;
         padding: 12px 10px;
         margin-top: 10px;
         margin-bottom: 80px;
+        font-size: 16px;
+        color: white;
+        background-color: #0195f3;
+        border-radius: 5px;
+        border: none;
+        opacity: 0.5;
+        cursor: 'default';
+      }
+
+      .loginBtnLive {
+        opacity: 1;
+        cursor: 'pointer';
       }
     }
   }

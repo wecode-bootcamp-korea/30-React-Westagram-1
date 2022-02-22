@@ -9,8 +9,6 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const [idValue, setIdValue] = useState('');
   const [pwValue, setPwValue] = useState('');
-  const [disabled, setDisabled] = useState(true);
-  const [style, setStyle] = useState({ opacity: 0.5, cursor: 'default' });
 
   const navigate = useNavigate();
 
@@ -20,42 +18,10 @@ function Login() {
 
   const handleIdInput = e => {
     setIdValue(e.target.value);
-    checkBtnValid();
   };
 
   const handlePwInput = e => {
     setPwValue(e.target.value);
-    checkBtnValid();
-  };
-
-  const checkId = value => {
-    return value.includes('@') ? true : false;
-  };
-
-  const checkPw = value => {
-    return value.length >= 5 ? true : false;
-  };
-
-  const checkBtnValid = () => {
-    const isValidId = checkId(idValue); // id 검사
-    const isValidPw = checkPw(pwValue); // pw 검사
-    // 결과에 따라 버튼 live
-    if (isValidId && isValidPw) {
-      updateBtnStyle(true);
-    } else {
-      updateBtnStyle(false);
-    }
-  };
-
-  const updateBtnStyle = btnValid => {
-    setDisabled(!btnValid); // 반대값
-    setStyle({
-      opacity: btnValid ? 1 : 0.5,
-      cursor: btnValid ? 'pointer' : 'default',
-    }); // true 1, false 0.5
-    // if (window.event.code === "Enter") {
-    //     success();
-    // }
   };
 
   return (
@@ -83,9 +49,11 @@ function Login() {
           />
           <button
             type="submit"
-            className="loginBtn"
-            style={style}
-            disabled={disabled}
+            className={`loginBtn ${
+              idValue.indexOf('@') > -1 && pwValue.length >= 5
+                ? 'loginBtnLive'
+                : ''
+            }`}
             onClick={goToMain}
           >
             로그인

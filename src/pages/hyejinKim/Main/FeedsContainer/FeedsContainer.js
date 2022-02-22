@@ -7,16 +7,12 @@ function FeedsContainer() {
   const [feedList, setFeedList] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/hyejinKim/feedData.json', {
-      method: 'GET',
-    })
+    fetch('http://localhost:3000/data/hyejinKim/feedData.json')
       .then(res => res.json())
       .then(data => {
         setFeedList(data);
       });
   }, []);
-
-  console.log(feedList);
 
   return (
     <main className="feedsContainer">

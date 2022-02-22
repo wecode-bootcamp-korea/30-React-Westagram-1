@@ -1,5 +1,6 @@
 import './Feed.scss';
 import CommentList from './CommentList';
+import React, { useState, useEffect, useRef } from 'react';
 
 function Feed({
   userName,
@@ -9,18 +10,36 @@ function Feed({
   content,
   imgURL,
 }) {
-  // const onKeyPress = e => {
-  //   let nextContent = e.target.value; // 지금 내가 input에 친 댓글 내용 저장
-  //   if (e.code === 'Enter') {
-  //     setCmtContents([...cmtContents, nextContent]);
-  //     e.target.value = ''; // 빈 문자열로 input 초기화
-  //   }
-  // };
+  const [comment, setComment] = useState(''); // 댓글 내용
+  const [commentList, setCommentList] = useState([]); // 댓글 내용만 모아놓은 배열
+  const ref = useRef();
+  let strs = '';
 
-  // const handleBtn = e => {
-  //   let nextContent = e.target.value;
-  //   setCmtContents([...cmtContents, nextContent]);
-  // };
+  const getComment = e => {
+    strs += e.target.value;
+    setComment(strs);
+  };
+
+  const addComment = e => {
+    e.preventDefault();
+    let userName = `test04`;
+    let content = comment; // 지금 내가 input에 친 댓글 내용 저장
+    let nextObj = { userName, content };
+    setCommentList([...commentList, nextObj]);
+    // 빈 문자열로 input 초기화
+    ref.current.value = '';
+    setComment([]);
+  };
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/hyejinKim/commentData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setCommentList(data);
+      });
+  }, []);
 
   return (
     <article className="feed">
@@ -77,20 +96,21 @@ function Feed({
           <span className="postContent">{content}</span>
           <b className="morePost">더 보기</b>
         </p>
-        <CommentList />
+        <CommentList commentList={commentList} />
         <p className="postTime">42분 전</p>
       </div>
-      <div className="commentWrite">
+      <form className="commentWrite" onSubmit={addComment}>
         <input
           className="commentInput"
           type="text"
           placeholder="댓글 달기..."
-          // onKeyPress={onKeyPress}
+          onKeyPress={getComment}
+          ref={ref}
         />
         <button className="commentBtn" type="submit">
           게시
         </button>
-      </div>
+      </form>
     </article>
   );
 }
