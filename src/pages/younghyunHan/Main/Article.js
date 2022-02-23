@@ -1,5 +1,5 @@
-import './Article.scss';
 import { useState, useEffect } from 'react';
+import './Article.scss';
 import Comment from './Comment';
 
 function Article(props) {
@@ -27,7 +27,9 @@ function Article(props) {
       <article>
         <div className="feedTop">
           <div className="feedTopOne">
-            <div className="profileLogo">wecode</div>
+            <div className="profileLogo">
+              <img className="profileLogoImg" src={props.profileLogo} />
+            </div>
             <div className="profileName">
               <div className="profileNameOne">{props.userName}</div>
               <span className="profileNameTwo">Wecode - 위코드</span>
@@ -55,24 +57,26 @@ function Article(props) {
           교육업체가 아닌 개발자 커뮤니티입니다. Wecode에서 배우고 저는 총 5개
           회사에서 오퍼를 받았습니다.
         </div>
-        {cmtContLists.map((content, index) => {
-          return (
-            <div key={index}>
-              <Comment
-                key={content.id}
-                userName={content.userName}
-                content={content.content}
-              />
-            </div>
-          );
-        })}
-        {cmtContents.map((content, index) => {
-          return (
-            <div key={index}>
-              <Comment content={content} />
-            </div>
-          );
-        })}
+        <div classNuame="comment">
+          {cmtContLists.map((content, index) => {
+            return (
+              <div key={index}>
+                <Comment
+                  key={content.id}
+                  userName={content.userName}
+                  content={content.content}
+                />
+              </div>
+            );
+          })}
+          {cmtContents.map((content, index) => {
+            return (
+              <div key={index}>
+                <Comment content={content} />
+              </div>
+            );
+          })}
+        </div>
         <span className="postTime">54분 전</span>
         <div className="commentSection">
           <input

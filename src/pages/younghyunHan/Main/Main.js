@@ -27,6 +27,7 @@ function Main() {
                   userName={content.userName}
                   feedImg={content.feedImg}
                   userMan={content.userMan}
+                  profileLogo={content.profileLogo}
                 />
               </div>
             );

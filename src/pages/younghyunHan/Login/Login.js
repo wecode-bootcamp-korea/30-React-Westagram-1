@@ -1,12 +1,14 @@
-import './Login.scss';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import './Login.scss';
 
 function Login() {
   const [state, setState] = useState('');
   const [passwordValue, setPasswordValue] = useState('');
   const [disabled, setDisabled] = useState(true);
   const [style, setStyle] = useState({ opacity: 0.5, cursor: 'default' });
+
+  const navigate = useNavigate();
 
   function handleIdInput(event) {
     if (event.target.type === 'text') {
@@ -43,9 +45,6 @@ function Login() {
       cursor: btnValid ? 'pointer' : 'default',
     });
   };
-
-  const navigate = useNavigate();
-
   const goToMain = () => {
     navigate('/main-han');
   };
@@ -72,7 +71,9 @@ function Login() {
           onClick={goToMain}
           disabled={disabled}
           style={style}
-        > 로그인
+        >
+          {' '}
+          로그인
         </button>
         <div className="findPassword">
           <a href="#">비밀번호를 잊으셨나요?</a>
