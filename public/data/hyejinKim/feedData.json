@@ -3,18 +3,22 @@
     "id": 1,
     "userName": "tyui3185",
     "address": "서울, 학교 벤치",
+    "profileImg": "/images/hyejinKim/profiles/profile00.jpg",
+    "likeUserImg": "/images/hyejinKim/profiles/profile04.png",
     "firstLikeUser": "aineworld",
     "likeCount": 10,
     "content": "학교 벤치에서 하늘 구경 중",
-    "imgURL": "/images/hyejinKim/profiles/profile04.png"
+    "feedImg": "/images/hyejinKim/profiles/profile04.png"
   },
   {
     "id": 2,
     "userName": "tyui1385",
     "address": "이문동",
+    "profileImg": "/images/hyejinKim/profiles/profile00.jpg",
+    "likeUserImg": "/images/hyejinKim/profiles/profile06.png",
     "firstLikeUser": "wecode_bootcamp",
     "likeCount": 8,
     "content": "이문동 철길, 칙칙 폭폭",
-    "imgURL": "/images/hyejinKim/profiles/profile06.png"
+    "feedImg": "/images/hyejinKim/profiles/profile06.png"
   }
 ]

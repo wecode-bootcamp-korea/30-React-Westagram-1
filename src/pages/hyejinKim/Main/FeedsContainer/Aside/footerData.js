@@ -1,4 +1,4 @@
-export const INFO_LIST = [
+export const FOOTER_INFO = [
   {
     id: 1,
     name: 'Instagram 정보',

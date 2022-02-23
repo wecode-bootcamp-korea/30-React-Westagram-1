@@ -1,40 +1,42 @@
-import './Feed.scss';
-import CommentList from './CommentList';
 import React, { useState, useEffect, useRef } from 'react';
+import CommentList from './CommentList';
+import './Feed.scss';
 
 function Feed({
   userName,
   address,
+  profileImg,
+  likeUserImg,
   firstLikeUser,
   likeCount,
   content,
-  imgURL,
+  feedImg,
 }) {
-  const [comment, setComment] = useState(''); // 댓글 내용
+  // Q. 스테이트를 여기다 두면, 새로운 댓글 추가할 때마다 피드 통째로 재렌더링 되는데 맞는건지..?
+  // commentList를 쓰는 형제 관계의 태그가 있어서 Feed에 둠..
+  // CommentList 컴포넌트에 댓글 목록 + 댓글 쓰는 인풋까지 합치려고 했는데 postTime도 함께 들어가야해서 안했음
+
+  const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]); // 댓글 내용만 모아놓은 배열
-  const ref = useRef();
+  let ref = useRef();
   let strs = '';
 
   const getComment = e => {
-    strs += e.target.value;
+    strs += e.target.value; // 지금 내가 input에 친 댓글 내용 저장
     setComment(strs);
   };
 
   const addComment = e => {
     e.preventDefault();
     let userName = `test04`;
-    let content = comment; // 지금 내가 input에 친 댓글 내용 저장
-    let nextObj = { userName, content };
-    setCommentList([...commentList, nextObj]);
-    // 빈 문자열로 input 초기화
+    let content = comment;
+    setCommentList([...commentList, { userName, content }]);
+    setComment('');
     ref.current.value = '';
-    setComment([]);
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/hyejinKim/commentData.json', {
-      method: 'GET',
-    })
+    fetch('http://localhost:3000/data/hyejinKim/commentData.json')
       .then(res => res.json())
       .then(data => {
         setCommentList(data);
@@ -45,10 +47,7 @@ function Feed({
     <article className="feed">
       <div className="profileContainer">
         <div className="profile">
-          <img
-            alt="profileImg"
-            src="/images/hyejinKim/profiles/profile00.jpg"
-          />
+          <img alt="profileImg" src={profileImg} />
           <div className="profile-info">
             <h3 className="profile-id">{userName}</h3>
             <h3 className="profile-bottom">{address}</h3>
@@ -61,7 +60,7 @@ function Feed({
         />
       </div>
       <div className="feedImage">
-        <img alt="feedImg" src={imgURL} />
+        <img alt="feedImg" src={feedImg} />
       </div>
       <div className="feedImageBottom">
         <div className="feedMenu">
@@ -82,10 +81,7 @@ function Feed({
           </div>
         </div>
         <div className="likeCount">
-          <img
-            alt="profileImg"
-            src="/images/hyejinKim/profiles/profile04.png"
-          />
+          <img alt="likeUserImg" src={likeUserImg} />
           <p>
             <b id="likeUser">{firstLikeUser}</b>님 외
             <b id="likeUserCnt"> {likeCount}명</b>이 좋아합니다
@@ -104,7 +100,7 @@ function Feed({
           className="commentInput"
           type="text"
           placeholder="댓글 달기..."
-          onKeyPress={getComment}
+          onChange={getComment}
           ref={ref}
         />
         <button className="commentBtn" type="submit">
