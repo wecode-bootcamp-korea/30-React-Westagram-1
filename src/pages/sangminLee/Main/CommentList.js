@@ -13,7 +13,7 @@ function CommentList() {
   }, []);
 
   return (
-    <div className="commentList">
+    <div className="feed-descripton">
       <ul>
         {commentList.map(comment => {
           return (

@@ -5,6 +5,7 @@ import { BsUpload, BsBookmark, BsThreeDots } from 'react-icons/bs';
 
 import Nav from '../../../components/Nav/Nav';
 import CommentList from './CommentList';
+import CommentInput from './CommentInput';
 const Main = () => {
   return (
     <div className="main-container">
@@ -55,22 +56,9 @@ const Main = () => {
               </div>
             </div>
             {/* 댓글창 */}
+
             <CommentList />
-            {/* <div className="feed-descripton">
-              <b>wecode_bootcamp</b> "위코드는 단순 교육업체가 아닌 개발자
-              커뮤니티입니다. Wecode에서 배우고 저는 총 5개 회사에서 오퍼를
-              받았습니다." - wecode 졸업생 강병진님...{' '}
-              <span className="blur">더 보기</span>
-              <div className="blur timestamp">54분 전</div>
-            </div> */}
-            {/* 댓글 입력창 */}
-            <div className="feed-commentbox">
-              <ul className="feed-commentlist" />
-              <div className="feed-comment">
-                <input className="comment-text" placeholder="댓글 달기..." />
-                <button className="comment-add blur">게 시</button>
-              </div>
-            </div>
+            <CommentInput />
           </article>
         </div>
 

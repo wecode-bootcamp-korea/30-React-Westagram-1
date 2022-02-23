@@ -18,6 +18,27 @@ function Login() {
       ? setIsActive(true)
       : setIsActive(false);
   };
+  const btnClick = event => {
+    fetch('http://10.58.5.213:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: inputId,
+        password: inputPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(
+        result => console.log(result)
+        // if (result.message === 'SUCCESS')
+        // {
+        //   alert('회원가입 성공');
+        // } else
+        // {
+        //   alert('양식에 맞춰주세요');
+
+        // }
+      );
+  };
 
   return (
     <div className="westagramLogin">
@@ -41,7 +62,10 @@ function Login() {
           />
         </div>
 
-        <button className={isActive ? 'activeBtn' : 'unactiveBtn'}>
+        <button
+          onClick={btnClick}
+          className={isActive ? 'activeBtn' : 'unactiveBtn'}
+        >
           로그인
         </button>
 
