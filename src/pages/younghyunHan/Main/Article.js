@@ -58,7 +58,7 @@ function Article(props) {
           회사에서 오퍼를 받았습니다.
         </div>
         <div className="comment">
-          {cmtContLists.map((content, index) => {
+          {cmtContLists.map(content => {
             return (
               <Comment
                 key={content.id}
