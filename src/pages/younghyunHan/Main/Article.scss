@@ -81,7 +81,8 @@ article {
       height: 20px;
       margin-right: 10px;
       border-radius: 50%;
-    }
+    } // 위 코드 처럼 하려면 div로 이미지 한번 더 감써서 그 div에 overflow:hidden 주고
+    // img파일에 width: 100%, height: 100%, object-fit: cover주면 됨
 
     .feedFourWord,
     .feedFourWordTwo {

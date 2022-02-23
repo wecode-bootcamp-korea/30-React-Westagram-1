@@ -72,7 +72,7 @@ function Article(props) {
           {cmtContents.map((content, index) => {
             return (
               <div key={index}>
-                <Comment content={content} />
+                <Comment content={content} userName="test01" />
               </div>
             );
           })}
