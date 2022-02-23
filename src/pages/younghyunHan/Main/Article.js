@@ -57,16 +57,14 @@ function Article(props) {
           교육업체가 아닌 개발자 커뮤니티입니다. Wecode에서 배우고 저는 총 5개
           회사에서 오퍼를 받았습니다.
         </div>
-        <div classNuame="comment">
+        <div className="comment">
           {cmtContLists.map((content, index) => {
             return (
-              <div key={index}>
-                <Comment
-                  key={content.id}
-                  userName={content.userName}
-                  content={content.content}
-                />
-              </div>
+              <Comment
+                key={content.id}
+                userName={content.userName}
+                content={content.content}
+              />
             );
           })}
           {cmtContents.map((content, index) => {

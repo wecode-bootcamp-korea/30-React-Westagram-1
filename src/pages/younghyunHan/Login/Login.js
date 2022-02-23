@@ -45,8 +45,27 @@ function Login() {
       cursor: btnValid ? 'pointer' : 'default',
     });
   };
+
   const goToMain = () => {
-    navigate('/main-han');
+    fetch('http://10.58.4.238:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: state,
+        password: passwordValue,
+        // name: '래영',
+        // phone_number: '010-1111-111',
+      }),
+    })
+      .then(response => response.json())
+      .then(result => {
+        console.log(result);
+        if (result.token) {
+          alert('환영합니다!');
+          navigate('/main-han');
+        } else if (result.message === 'INVALID_USER') {
+          alert('ID와 PW를 확인해주세요.');
+        }
+      });
   };
 
   return (
@@ -66,13 +85,12 @@ function Login() {
           onChange={handleIdInput}
         />
         <button
-          type="submit"
+          type="button"
           className="loginButton"
           onClick={goToMain}
           disabled={disabled}
           style={style}
         >
-          {' '}
           로그인
         </button>
         <div className="findPassword">
