@@ -2,6 +2,10 @@
   background-color: white;
   border: 1px solid #e9ecef;
 
+  b {
+    font-weight: 600;
+  }
+
   .profileContainer {
     display: flex;
     justify-content: space-between;
@@ -17,8 +21,8 @@
       align-items: center;
 
       img {
-        border-radius: 100px;
         width: 35px;
+        border-radius: 100px;
       }
 
       .profile-info {
@@ -115,8 +119,8 @@
     .commentBtn {
       flex: 1;
       border: none;
-      background-color: white;
       color: #0095f6;
+      background-color: white;
       font-weight: bold;
     }
   }

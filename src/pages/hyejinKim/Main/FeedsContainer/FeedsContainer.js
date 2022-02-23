@@ -29,6 +29,7 @@ function FeedsContainer() {
               likeCount={feed.likeCount}
               content={feed.content}
               feedImg={feed.feedImg}
+              feedCommentList={feed.feedCommentList}
             />
           );
         })}

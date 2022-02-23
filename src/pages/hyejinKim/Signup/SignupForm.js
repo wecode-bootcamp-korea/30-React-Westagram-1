@@ -1,15 +1,15 @@
-import './LoginForm.scss';
+import './SignupForm.scss';
 
-function LoginForm({ values, onSubmit, onChange }) {
+function SignupForm({ values, onSubmit, onChange }) {
   const isIdInputValid = values.id.includes('@') && values.id.length >= 6;
   const isPwInputValid = values.pw.length >= 6;
 
   return (
-    <form className="loginForm" onSubmit={onSubmit}>
+    <form className="signupForm" onSubmit={onSubmit}>
       <h1 id="logo" className="logo-font">
         Westagram
       </h1>
-      <div className="loginWrapper">
+      <div className="signupWrapper">
         <input
           id="id"
           name="id"
@@ -28,8 +28,8 @@ function LoginForm({ values, onSubmit, onChange }) {
         />
         <button
           type="submit"
-          className={`loginBtn ${
-            isIdInputValid && isPwInputValid ? 'loginBtnLive' : ''
+          className={`signupBtn ${
+            isIdInputValid && isPwInputValid ? 'signupBtnLive' : ''
           }`}
         >
           로그인
@@ -42,4 +42,4 @@ function LoginForm({ values, onSubmit, onChange }) {
   );
 }
 
-export default LoginForm;
+export default SignupForm;

@@ -8,7 +8,27 @@
     "firstLikeUser": "aineworld",
     "likeCount": 10,
     "content": "학교 벤치에서 하늘 구경 중",
-    "feedImg": "/images/hyejinKim/profiles/profile04.png"
+    "feedImg": "/images/hyejinKim/profiles/profile04.png",
+    "feedCommentList": [
+      {
+        "id": 1,
+        "userName": "test01",
+        "content": "위코드 과제 중~~",
+        "isLiked": true
+      },
+      {
+        "id": 2,
+        "userName": "test02",
+        "content": "나도 과제 중ㅠㅠ",
+        "isLiked": false
+      },
+      {
+        "id": 3,
+        "userName": "test03",
+        "content": "mock data 입니다^^",
+        "isLiked": false
+      }
+    ]
   },
   {
     "id": 2,
@@ -19,6 +39,7 @@
     "firstLikeUser": "wecode_bootcamp",
     "likeCount": 8,
     "content": "이문동 철길, 칙칙 폭폭",
-    "feedImg": "/images/hyejinKim/profiles/profile06.png"
+    "feedImg": "/images/hyejinKim/profiles/profile06.png",
+    "feedCommentList": []
   }
 ]

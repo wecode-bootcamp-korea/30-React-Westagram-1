@@ -1,8 +1,7 @@
 import { FOOTER_INFO } from './footerData.js';
 import './Footer.scss';
 
-// Q. 푸터인포 파일은 로컬에서 관리하나요? 파일 경로 어디로 하면 되는지.. (src? public?)
-// Q. map으로 렌더링은 했는데, 3~4개씩 붙어서 나오게 하려면?? 원래는 <div> 안에 글자를 그대로 적어줬음
+// Q. 푸터인포 파일은 로컬에서 관리하는게 맞나요?
 
 function Footer() {
   return (
@@ -19,7 +18,7 @@ function Footer() {
           );
         })}
       </ul>
-      <p className="copyright">2019 INSTAGRAM</p>
+      <p className="copyright">2022 INSTAGRAM</p>
     </footer>
   );
 }

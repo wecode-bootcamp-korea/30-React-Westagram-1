@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.loginForm {
+.signupForm {
   padding: 50px 50px;
   border: 1px solid #e0e4e7;
   border-radius: 5px;
@@ -13,7 +13,7 @@
     @include logoFont;
   }
 
-  .loginWrapper {
+  .signupWrapper {
     width: 350px;
 
     .textField {
@@ -26,7 +26,7 @@
       font-size: 14px;
     }
 
-    .loginBtn {
+    .signupBtn {
       display: inline-block;
       width: 100%;
       margin-top: 10px;
@@ -41,7 +41,7 @@
       cursor: 'default';
     }
 
-    .loginBtnLive {
+    .signupBtnLive {
       opacity: 1;
       cursor: 'pointer';
     }

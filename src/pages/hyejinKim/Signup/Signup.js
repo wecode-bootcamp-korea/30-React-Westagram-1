@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginForm from './LoginForm';
-import './Login.scss';
+import SignupForm from './SignupForm';
+import './Signup.scss';
 
 // 질문
 // 1. 현재 state를 가져오는 경우는 언제인지? 콜백함수가 인자로 들어오면??
 // 2. 제어 컴포넌트랑 무슨 차이지?
 
-function Login() {
+function Signup() {
   const navigate = useNavigate();
   const [values, setValues] = useState({
     id: '',
@@ -22,9 +22,9 @@ function Login() {
     // 2) 프로퍼티는 []로 감싼다
   };
 
-  const sendLoginInfo = e => {
+  const sendSignupInfo = e => {
     e.preventDefault();
-    fetch('http://10.58.6.223:8000/users/login', {
+    fetch('http://10.58.6.223:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         email: values.id,
@@ -51,14 +51,14 @@ function Login() {
   };
 
   return (
-    <div className="login">
-      <LoginForm
+    <div className="signup">
+      <SignupForm
         values={values}
-        onSubmit={sendLoginInfo}
+        onSubmit={sendSignupInfo}
         onChange={handleInputValue}
       />
     </div>
   );
 }
 
-export default Login;
+export default Signup;

@@ -1,5 +1,5 @@
-import './Aside.scss';
 import Footer from './Footer';
+import './Aside.scss';
 
 function Aside() {
   return (

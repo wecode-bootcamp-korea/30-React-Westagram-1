@@ -1,10 +1,18 @@
-import React from 'react';
 import Comment from './Comment';
 import './CommentList.scss';
 
-function CommentList({ commentList }) {
+function CommentList({ commentList, feedCommentList }) {
   return (
     <div className="commentList">
+      {feedCommentList.map(feedComment => {
+        return (
+          <Comment
+            key={feedComment.id}
+            name={feedComment.userName}
+            comment={feedComment.content}
+          />
+        );
+      })}
       {commentList.map(comment => {
         return (
           // <div key={index}>

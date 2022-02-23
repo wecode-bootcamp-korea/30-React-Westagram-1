@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import CommentList from './CommentList';
 import './Feed.scss';
 
@@ -11,6 +11,7 @@ function Feed({
   likeCount,
   content,
   feedImg,
+  feedCommentList,
 }) {
   // Q. 스테이트를 여기다 두면, 새로운 댓글 추가할 때마다 피드 통째로 재렌더링 되는데 맞는건지..?
   // commentList를 쓰는 형제 관계의 태그가 있어서 Feed에 둠..
@@ -21,6 +22,16 @@ function Feed({
   let ref = useRef();
   let strs = '';
 
+  /* commentData 안씀
+  useEffect(() => {
+    fetch('http://localhost:3000/data/hyejinKim/commentData.json')
+      .then(res => res.json())
+      .then(data => {
+        setCommentList(data);
+      });
+  }, []);
+*/
+
   const getComment = e => {
     strs += e.target.value; // 지금 내가 input에 친 댓글 내용 저장
     setComment(strs);
@@ -30,18 +41,11 @@ function Feed({
     e.preventDefault();
     let userName = `test04`;
     let content = comment;
-    setCommentList([...commentList, { userName, content }]);
+    let id = commentList.length + 1;
+    setCommentList([...commentList, { id, userName, content }]);
     setComment('');
     ref.current.value = '';
   };
-
-  useEffect(() => {
-    fetch('http://localhost:3000/data/hyejinKim/commentData.json')
-      .then(res => res.json())
-      .then(data => {
-        setCommentList(data);
-      });
-  }, []);
 
   return (
     <article className="feed">
@@ -67,7 +71,7 @@ function Feed({
           <div className="feedMenu-left">
             <div
               className="postLikeBtn postLikeBtn-white"
-              onClick="postLike(event)"
+              // onClick="postLike(event)"
             />
             <img alt="chatIcon" src="/images/hyejinKim/chat.png" />
             <img alt="shareIcon" src="/images/hyejinKim/share.png" />
@@ -92,7 +96,10 @@ function Feed({
           <span className="postContent">{content}</span>
           <b className="morePost">더 보기</b>
         </p>
-        <CommentList commentList={commentList} />
+        <CommentList
+          commentList={commentList}
+          feedCommentList={feedCommentList}
+        />
         <p className="postTime">42분 전</p>
       </div>
       <form className="commentWrite" onSubmit={addComment}>

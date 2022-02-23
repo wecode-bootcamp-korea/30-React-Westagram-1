@@ -3,8 +3,8 @@ import './Nav.scss';
 
 function Nav() {
   return (
-    <div className="nav">
-      <nav className="navbar">
+    <nav className="nav">
+      <div className="navbar">
         <div className="navbarLeft1">
           <div className="navbarLeft1Inner">
             <Link to="/" className="navbarItem logoImg">
@@ -40,8 +40,8 @@ function Nav() {
             />
           </Link>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 }
 
