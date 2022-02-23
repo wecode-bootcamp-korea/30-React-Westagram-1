@@ -16,7 +16,7 @@ function Feeds() {
       .then(data => setCommentList(data));
   }, []);
 
-  const commentChangeHandle = event => {
+  const getComment = event => {
     setCommentText(event.target.value);
   };
 
@@ -100,17 +100,17 @@ function Feeds() {
         </div>
         <div className="feed-commentbox">
           <Comments commentList={commentList} />
-          <div className="feed-comment">
+          <form className="feed-form" onSubmit={e => e.preventDefault()}>
             <input
               className="comment-text"
               placeholder="댓글 달기..."
-              onChange={commentChangeHandle}
+              onChange={getComment}
               onKeyDown={commentEnterUpload}
             />
             <button className="comment-add blur" onClick={commentUpload}>
               게 시
             </button>
-          </div>
+          </form>
         </div>
       </article>
     </div>

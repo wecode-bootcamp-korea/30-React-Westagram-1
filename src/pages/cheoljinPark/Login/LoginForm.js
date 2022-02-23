@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginForm.scss';
 
@@ -12,6 +12,20 @@ function LoginForm({
 }) {
   const navigate = useNavigate();
 
+  const serverPath = 'http://172.21.51.88:8080';
+
+  // useEffect(() => {
+  //   fetch(`${serverPath}/users/login`, {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: 'hohoho@gmail.com',
+  //       password: '1235^3453',
+  //     }),
+  //   })
+  //     .then(res => res.json())
+  //     .then(result => console.log('결과: ', result));
+  // }, []);
+
   const handleIdInput = event => {
     setLoginId(event.target.value);
   };
@@ -24,11 +38,21 @@ function LoginForm({
       ? setLoginCheck(true)
       : setLoginCheck(false);
 
-  const sendMain = () =>
+  const sendMain = () => {
     loginCheck ? navigate('/main-park') : alert('정신 차리세요');
+    // fetch(`${serverPath}/users/login`, {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     email: loginId,
+    //     password: loginPw,
+    //   }),
+    // })
+    //   .then(res => res.json())
+    //   .then(result => console.log('결과: ', result));
+  };
 
   return (
-    <form className="login-form">
+    <form className="login-form" onSubmit={sendMain}>
       <input
         type="text"
         className="login-id loginInput"
@@ -44,13 +68,9 @@ function LoginForm({
         onKeyUp={loginInspector}
       />
       <button
-        className="login-btn"
+        type="button"
+        className={`login-btn ${loginCheck ? 'login-btnLive' : ''}`}
         onClick={sendMain}
-        style={
-          loginCheck
-            ? { opacity: 1, cursor: 'pointer' }
-            : { opacity: 0.5, cursor: 'not-allowed' }
-        }
       >
         로그인
       </button>

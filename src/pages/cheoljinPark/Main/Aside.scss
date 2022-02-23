@@ -59,7 +59,6 @@
       background-color: white;
       overflow: auto;
       padding-left: 10px;
-      // border-bottom: ;
 
       .side-story {
         display: flex;
@@ -191,14 +190,16 @@
     }
   }
 
-  .side-information {
-    margin: 15px 0;
-    opacity: 0.4;
-    width: 300px;
-  }
+  .footer {
+    .side-information {
+      margin: 15px 0;
+      opacity: 0.4;
+      width: 300px;
+    }
 
-  .side-company {
-    opacity: 0.4;
-    width: 300px;
+    .side-company {
+      opacity: 0.4;
+      width: 300px;
+    }
   }
 }
