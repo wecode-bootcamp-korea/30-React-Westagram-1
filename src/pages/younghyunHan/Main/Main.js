@@ -2,6 +2,7 @@ import './Main.scss';
 import Nav from '../../../components/Nav/Nav';
 import '../../../styles/variables.scss';
 import Article from './Article';
+import Footer from './Footer';
 import { useState, useEffect } from 'react';
 
 function Main() {
@@ -138,18 +139,7 @@ function Main() {
               </div>
             </div>
           </div>
-          <div className="companyInformation">
-            <div className="companyInformationOne">
-              Instagram 정보 · 지원 · 홍보 센터 · API ·
-            </div>
-            <div className="companyInformationTwo">
-              채용 정보 · 개인정보처리방침 · 약관 ·
-            </div>
-            <div className="companyInformationThree">
-              디렉토리 · 프로필 · 해시태그 · 언어
-            </div>
-            <div className="companyInformationFour">2022 INSTAGRAM</div>
-          </div>
+          <Footer />
         </div>
       </main>
     </div>
