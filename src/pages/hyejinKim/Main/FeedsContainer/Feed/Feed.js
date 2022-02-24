@@ -20,29 +20,20 @@ function Feed({
   const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]); // 댓글 내용만 모아놓은 배열
   let ref = useRef();
-  let strs = '';
-
-  /* commentData 안씀
-  useEffect(() => {
-    fetch('http://localhost:3000/data/hyejinKim/commentData.json')
-      .then(res => res.json())
-      .then(data => {
-        setCommentList(data);
-      });
-  }, []);
-*/
+  let strs = ''; // 인풋 입력값
 
   const getComment = e => {
-    strs += e.target.value; // 지금 내가 input에 친 댓글 내용 저장
+    strs += e.target.value;
     setComment(strs);
   };
 
   const addComment = e => {
     e.preventDefault();
+    let id = commentList.length + 1;
     let userName = `test04`;
     let content = comment;
-    let id = commentList.length + 1;
     setCommentList([...commentList, { id, userName, content }]);
+    // 인풋 초기화
     setComment('');
     ref.current.value = '';
   };
@@ -110,7 +101,13 @@ function Feed({
           onChange={getComment}
           ref={ref}
         />
-        <button className="commentBtn" type="submit">
+        <button
+          className={`commentBtn ${
+            comment.length >= 1 ? 'commentBtnLive' : ''
+          }`}
+          type="submit"
+          disabled={!(comment.length >= 1)}
+        >
           게시
         </button>
       </form>

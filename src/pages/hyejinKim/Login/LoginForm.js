@@ -1,8 +1,8 @@
 import './LoginForm.scss';
 
 function LoginForm({ values, onSubmit, onChange }) {
-  const isIdInputValid = values.id.includes('@') && values.id.length >= 6;
-  const isPwInputValid = values.pw.length >= 6;
+  // const isIdInputValid = values.id.includes('@') && values.id.length >= 6;
+  // const isPwInputValid = values.pw.length >= 6;
 
   return (
     <form className="loginForm" onSubmit={onSubmit}>
@@ -29,7 +29,9 @@ function LoginForm({ values, onSubmit, onChange }) {
         <button
           type="submit"
           className={`loginBtn ${
-            isIdInputValid && isPwInputValid ? 'loginBtnLive' : ''
+            values.id.includes('@') && values.pw.length >= 6
+              ? 'loginBtnLive'
+              : ''
           }`}
         >
           로그인

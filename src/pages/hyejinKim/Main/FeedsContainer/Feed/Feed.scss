@@ -122,6 +122,13 @@
       color: #0095f6;
       background-color: white;
       font-weight: bold;
+      opacity: 0.5;
+      cursor: 'default';
+    }
+
+    .commentBtnLive {
+      opacity: 1;
+      cursor: 'pointer';
     }
   }
 }

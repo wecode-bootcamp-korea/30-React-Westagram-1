@@ -15,13 +15,11 @@ function CommentList({ commentList, feedCommentList }) {
       })}
       {commentList.map(comment => {
         return (
-          // <div key={index}>
           <Comment
             key={comment.id}
             name={comment.userName}
             comment={comment.content}
           />
-          // </div>
         );
       })}
     </div>
