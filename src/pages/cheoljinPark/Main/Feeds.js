@@ -7,7 +7,7 @@ import { MdOutlineIosShare } from 'react-icons/md';
 import { BsThreeDots, BsBookmarkFill } from 'react-icons/bs';
 
 function Feeds() {
-  let [commentText, setCommentText] = useState('');
+  const commentText = [];
   let [commentList, setCommentList] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Feeds() {
   }, []);
 
   const getComment = event => {
-    setCommentText(event.target.value);
+    commentText[0] = event.target.value;
   };
 
   const addComment = comment => {
@@ -31,17 +31,10 @@ function Feeds() {
   };
 
   const commentUpload = event => {
-    addComment(commentText);
-    event.target.value = '';
-    setCommentText('');
-  };
-
-  const commentEnterUpload = event => {
-    if (event.key === 'Enter') {
-      addComment(commentText);
-      event.target.value = '';
-      setCommentText('');
-    }
+    event.preventDefault();
+    addComment(commentText[0]);
+    commentText[0] = '';
+    event.target.reset();
   };
   return (
     <div className="feeds">
@@ -100,16 +93,13 @@ function Feeds() {
         </div>
         <div className="feed-commentbox">
           <Comments commentList={commentList} />
-          <form className="feed-form" onSubmit={e => e.preventDefault()}>
+          <form className="feed-form" onSubmit={commentUpload}>
             <input
               className="comment-text"
               placeholder="댓글 달기..."
               onChange={getComment}
-              onKeyDown={commentEnterUpload}
             />
-            <button className="comment-add blur" onClick={commentUpload}>
-              게 시
-            </button>
+            <button className="comment-add blur">게 시</button>
           </form>
         </div>
       </article>

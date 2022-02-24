@@ -14,17 +14,17 @@ function LoginForm({
 
   const serverPath = 'http://172.21.51.88:8080';
 
-  // useEffect(() => {
-  //   fetch(`${serverPath}/users/login`, {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       email: 'hohoho@gmail.com',
-  //       password: '1235^3453',
-  //     }),
-  //   })
-  //     .then(res => res.json())
-  //     .then(result => console.log('결과: ', result));
-  // }, []);
+  useEffect(() => {
+    fetch(`${serverPath}/users/login`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: 'hohoho@gmail.com',
+        password: '1235^3453',
+      }),
+    })
+      .then(res => res.json())
+      .then(result => console.log('결과: ', result));
+  }, []);
 
   const handleIdInput = event => {
     setLoginId(event.target.value);
@@ -39,16 +39,22 @@ function LoginForm({
       : setLoginCheck(false);
 
   const sendMain = () => {
-    loginCheck ? navigate('/main-park') : alert('정신 차리세요');
-    // fetch(`${serverPath}/users/login`, {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     email: loginId,
-    //     password: loginPw,
-    //   }),
-    // })
-    //   .then(res => res.json())
-    //   .then(result => console.log('결과: ', result));
+    fetch(`${serverPath}/users/login`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: loginId,
+        password: loginPw,
+      }),
+    })
+      .then(res => res.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          alert('환영합니다아!');
+          navigate('/main-stella');
+        } else {
+          alert('입력을 확인해주세요!!');
+        }
+      });
   };
 
   return (
