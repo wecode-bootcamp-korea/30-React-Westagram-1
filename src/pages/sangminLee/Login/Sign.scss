@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  .westagramLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #999999;
+    height: 100vh;
+  }
+
+
+  input {
+    width: 250px;
+    height: 30px;
+    margin: 2px;
+    padding: 5px;
+    font-size: 10px;
+    background-color: #fafafa;
+    border: 0.7px solid #efeeef;
+    border-radius: 3px;
+  }
+  
+  input::placeholder {
+    font-size: 5px;
+    color: #999999;
