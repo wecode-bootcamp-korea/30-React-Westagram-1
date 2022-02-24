@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import './Article.scss';
+import './Feed.scss';
 import Comment from './Comment';
 
-function Article(props) {
+function Feed(props) {
   const [cmtContents, setCmtContents] = useState([]);
   const [cmtContLists, setCmtContLists] = useState([]);
 
@@ -23,7 +23,7 @@ function Article(props) {
   }, []);
 
   return (
-    <div className="article">
+    <div className="feed">
       <article>
         <div className="feedTop">
           <div className="feedTopOne">
@@ -90,4 +90,4 @@ function Article(props) {
   );
 }
 
-export default Article;
+export default Feed;
