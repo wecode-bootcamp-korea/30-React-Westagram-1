@@ -21,15 +21,11 @@
     font-size: 23px;
     color: #fff;
     opacity: 0.5;
-    &:hover {
-      cursor: 'not-allowed';
-    }
+    cursor: 'not-allowed';
   }
 
-  .login-btnLive {
+  .login-btnOn {
     opacity: 1;
-    &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 }

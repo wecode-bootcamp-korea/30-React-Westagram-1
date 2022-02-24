@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './LoginForm.scss';
 
@@ -14,29 +14,13 @@ function LoginForm({
 
   const serverPath = 'http://172.21.51.88:8080';
 
-  useEffect(() => {
-    fetch(`${serverPath}/users/login`, {
-      method: 'POST',
-      body: JSON.stringify({
-        email: 'hohoho@gmail.com',
-        password: '1235^3453',
-      }),
-    })
-      .then(res => res.json())
-      .then(result => console.log('결과: ', result));
-  }, []);
-
-  const handleIdInput = event => {
-    setLoginId(event.target.value);
+  const loginHandler = ({ target }) => {
+    if (target.type === 'text') {
+      setLoginId(target.value);
+    } else if (target.type === 'password') {
+      setLoginPw(target.value);
+    }
   };
-  const handlePwInput = event => {
-    setLoginPw(event.target.value);
-  };
-
-  const loginInspector = () =>
-    loginId.includes('@') && loginPw.length > 4
-      ? setLoginCheck(true)
-      : setLoginCheck(false);
 
   const sendMain = () => {
     fetch(`${serverPath}/users/login`, {
@@ -50,7 +34,7 @@ function LoginForm({
       .then(result => {
         if (result.message === 'SUCCESS') {
           alert('환영합니다아!');
-          navigate('/main-stella');
+          navigate('/main-park');
         } else {
           alert('입력을 확인해주세요!!');
         }
@@ -63,19 +47,19 @@ function LoginForm({
         type="text"
         className="login-id loginInput"
         placeholder="전화번호, 사용자 이름 또는 이메일"
-        onChange={handleIdInput}
-        onKeyUp={loginInspector}
+        onChange={loginHandler}
       />
       <input
         type="password"
         className="login-pw loginInput"
         placeholder="비밀번호"
-        onChange={handlePwInput}
-        onKeyUp={loginInspector}
+        onChange={loginHandler}
       />
       <button
         type="button"
-        className={`login-btn ${loginCheck ? 'login-btnLive' : ''}`}
+        className={`login-btn ${
+          loginId.includes('@') && loginPw.length > 4 ? 'login-btnOn' : ''
+        }`}
         onClick={sendMain}
       >
         로그인

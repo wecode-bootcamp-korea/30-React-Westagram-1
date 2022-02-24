@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
-import './Login.scss';
 import LoginForm from './LoginForm';
+import './Login.scss';
 
 function Login() {
-  let [loginId, setLoginId] = useState('');
-  let [loginPw, setLoginPw] = useState('');
-  let [loginCheck, setLoginCheck] = useState(false);
+  const [loginId, setLoginId] = useState('');
+  const [loginPw, setLoginPw] = useState('');
 
   return (
-    <div className="Login">
+    <div className="login">
       <header className="logo">Westagram</header>
       <LoginForm
         loginId={loginId}
         loginPw={loginPw}
-        loginCheck={loginCheck}
         setLoginId={setLoginId}
         setLoginPw={setLoginPw}
-        setLoginCheck={setLoginCheck}
       />
       <footer className="search-passwd">
         <a href="#">비밀번호를 잊으셨나요?</a>

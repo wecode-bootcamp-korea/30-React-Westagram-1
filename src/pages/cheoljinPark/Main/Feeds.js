@@ -8,7 +8,7 @@ import { BsThreeDots, BsBookmarkFill } from 'react-icons/bs';
 
 function Feeds() {
   const commentText = [];
-  let [commentList, setCommentList] = useState([]);
+  const [commentList, setCommentList] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/data/cheoljinPark/mock.json')
