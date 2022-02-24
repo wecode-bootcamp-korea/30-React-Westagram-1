@@ -9,7 +9,7 @@ function Main() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/younghyunHan/articleData.json')
+    fetch('http://localhost:3000/data/younghyunHan/feedData.json')
       .then(res => res.json())
       .then(data => {
         setArticles(data);
