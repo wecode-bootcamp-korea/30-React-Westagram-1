@@ -27,7 +27,6 @@ function SignupForm({ signupValues, onSubmit, onChange }) {
           onChange={onChange}
         />
         <button
-          type="submit"
           className={`signupBtn ${isInputValid ? 'signupBtnLive' : ''}`}
           disabled={!isInputValid}
         >

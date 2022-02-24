@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import CommentList from './CommentList';
 import './Feed.scss';
 
@@ -19,13 +19,10 @@ function Feed({
 
   const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]); // 댓글 내용만 모아놓은 배열
-  const ref = useRef();
   const isCommentValid = comment.length >= 1;
-  let strs = ''; // 인풋 입력값
 
   const getComment = e => {
-    strs += e.target.value;
-    setComment(strs);
+    setComment(comment);
   };
 
   const addComment = e => {
@@ -34,9 +31,7 @@ function Feed({
     const userName = `test04`;
     const content = comment;
     setCommentList([...commentList, { id, userName, content }]);
-    // 인풋 초기화
-    setComment('');
-    ref.current.value = '';
+    setComment(''); // 인풋 초기화
   };
 
   return (
@@ -99,8 +94,8 @@ function Feed({
           className="commentInput"
           type="text"
           placeholder="댓글 달기..."
+          value={comment}
           onChange={getComment}
-          ref={ref}
         />
         <button
           className={`commentBtn ${isCommentValid ? 'commentBtnLive' : ''}`}

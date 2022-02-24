@@ -28,7 +28,6 @@ function LoginForm({ loginValues, onSubmit, onChange }) {
           onChange={onChange}
         />
         <button
-          type="submit"
           className={`loginBtn ${isInputValid ? 'loginBtnLive' : ''}`}
           disabled={!isInputValid}
         >

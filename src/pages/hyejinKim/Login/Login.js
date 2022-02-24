@@ -17,11 +17,11 @@ function Login() {
   const handleInputValue = e => {
     const { name, value } = e.target;
     setLoginValues({ ...loginValues, [name]: value });
+    // 함수형 state
+    // 기존 스테이트에 값을 더할 때 쓴다.
     // 계산된 속성명
     // 1) 함수와 구분하기 위해 리턴값을 ()로 감싼다.
     // 2) 프로퍼티는 []로 감싼다
-    // 함수형 state
-    // 기존 스테이트에 값을 더할 때 쓴다.
   };
 
   const sendLoginInfo = e => {
