@@ -9,17 +9,14 @@ import './Signup.scss';
 
 function Signup() {
   const navigate = useNavigate();
-  const [values, setValues] = useState({
+  const [signupValues, setSignupValues] = useState({
     id: '',
     pw: '',
   });
 
   const handleInputValue = e => {
     const { name, value } = e.target;
-    setValues(preValues => ({ ...preValues, [name]: value }));
-    // 계산된 속성명
-    // 1) 함수와 구분하기 위해 리턴값을 ()로 감싼다.
-    // 2) 프로퍼티는 []로 감싼다
+    setSignupValues({ ...signupValues, [name]: value });
   };
 
   const sendSignupInfo = e => {
@@ -27,10 +24,8 @@ function Signup() {
     fetch('http://10.58.6.223:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        email: values.id,
-        password: values.pw,
-        // name: '김혜진',
-        // phone_number: '010-5003-3185',
+        email: signupValues.id,
+        password: signupValues.pw,
       }),
     })
       .then(response => response.json())
@@ -53,7 +48,7 @@ function Signup() {
   return (
     <div className="signup">
       <SignupForm
-        values={values}
+        signupValues={signupValues}
         onSubmit={sendSignupInfo}
         onChange={handleInputValue}
       />

@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
 import './LoginForm.scss';
 
-function LoginForm({ values, onSubmit, onChange }) {
-  // const isIdInputValid = values.id.includes('@') && values.id.length >= 6;
-  // const isPwInputValid = values.pw.length >= 6;
+function LoginForm({ loginValues, onSubmit, onChange }) {
+  const { id, pw } = loginValues; // input의 name과 객체 state 프로퍼티 이름은 동일하게 할것
+  const isIdInputValid = id.includes('@') && id.length >= 6;
+  const isPwInputValid = pw.length >= 6;
 
   return (
     <form className="loginForm" onSubmit={onSubmit}>
@@ -20,7 +22,7 @@ function LoginForm({ values, onSubmit, onChange }) {
         />
         <input
           id="password"
-          name="password"
+          name="pw"
           type="password"
           className="textField"
           placeholder="비밀번호"
@@ -29,16 +31,14 @@ function LoginForm({ values, onSubmit, onChange }) {
         <button
           type="submit"
           className={`loginBtn ${
-            values.id.includes('@') && values.pw.length >= 6
-              ? 'loginBtnLive'
-              : ''
+            isIdInputValid && isPwInputValid ? 'loginBtnLive' : ''
           }`}
         >
           로그인
         </button>
       </div>
       <div className="links">
-        <a href="./main-kim.html">비밀번호를 잊으셨나요?</a>
+        <Link to="/main-kim">비밀번호를 잊으셨나요?</Link>
       </div>
     </form>
   );

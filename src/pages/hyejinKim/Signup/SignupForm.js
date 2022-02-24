@@ -1,8 +1,9 @@
 import './SignupForm.scss';
 
-function SignupForm({ values, onSubmit, onChange }) {
-  const isIdInputValid = values.id.includes('@') && values.id.length >= 6;
-  const isPwInputValid = values.pw.length >= 6;
+function SignupForm({ signupValues, onSubmit, onChange }) {
+  const { id, pw } = signupValues;
+  const isIdInputValid = id.includes('@') && id.length >= 6;
+  const isPwInputValid = pw.length >= 6;
 
   return (
     <form className="signupForm" onSubmit={onSubmit}>
@@ -20,7 +21,7 @@ function SignupForm({ values, onSubmit, onChange }) {
         />
         <input
           id="password"
-          name="password"
+          name="pw"
           type="password"
           className="textField"
           placeholder="비밀번호"
@@ -32,11 +33,8 @@ function SignupForm({ values, onSubmit, onChange }) {
             isIdInputValid && isPwInputValid ? 'signupBtnLive' : ''
           }`}
         >
-          로그인
+          회원가입
         </button>
-      </div>
-      <div className="links">
-        <a href="./main-kim.html">비밀번호를 잊으셨나요?</a>
       </div>
     </form>
   );
