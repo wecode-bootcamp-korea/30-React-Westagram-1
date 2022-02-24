@@ -5,7 +5,7 @@ import { BsUpload, BsBookmark, BsThreeDots } from 'react-icons/bs';
 
 import Nav from '../../../components/Nav/Nav';
 import CommentList from './CommentList';
-import CommentInput from './CommentInput';
+
 const Main = () => {
   return (
     <div className="main-container">
@@ -18,7 +18,7 @@ const Main = () => {
                 <div className="feed-titlelogo">wecode</div>
                 <div className="feed-title">
                   <div className="title-name">wecode_bootcamp</div>
-                  <div cnalassName="title-author">wecode - 위코드</div>
+                  <div className="title-author">wecode - 위코드</div>
                 </div>
               </div>
 
@@ -56,9 +56,9 @@ const Main = () => {
               </div>
             </div>
             {/* 댓글창 */}
-
-            <CommentList />
-            <CommentInput />
+            <div className="feed-box">
+              <CommentList />
+            </div>
           </article>
         </div>
 
