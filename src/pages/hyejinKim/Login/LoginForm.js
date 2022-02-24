@@ -3,8 +3,7 @@ import './LoginForm.scss';
 
 function LoginForm({ loginValues, onSubmit, onChange }) {
   const { id, pw } = loginValues; // input의 name과 객체 state 프로퍼티 이름은 동일하게 할것
-  const isIdInputValid = id.includes('@') && id.length >= 6;
-  const isPwInputValid = pw.length >= 6;
+  const isInputValid = id.includes('@') && id.length >= 6 && pw.length >= 6;
 
   return (
     <form className="loginForm" onSubmit={onSubmit}>
@@ -30,9 +29,8 @@ function LoginForm({ loginValues, onSubmit, onChange }) {
         />
         <button
           type="submit"
-          className={`loginBtn ${
-            isIdInputValid && isPwInputValid ? 'loginBtnLive' : ''
-          }`}
+          className={`loginBtn ${isInputValid ? 'loginBtnLive' : ''}`}
+          disabled={!isInputValid}
         >
           로그인
         </button>

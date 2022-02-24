@@ -2,8 +2,7 @@ import './SignupForm.scss';
 
 function SignupForm({ signupValues, onSubmit, onChange }) {
   const { id, pw } = signupValues;
-  const isIdInputValid = id.includes('@') && id.length >= 6;
-  const isPwInputValid = pw.length >= 6;
+  const isInputValid = id.includes('@') && id.length >= 6 && pw.length >= 6;
 
   return (
     <form className="signupForm" onSubmit={onSubmit}>
@@ -29,9 +28,8 @@ function SignupForm({ signupValues, onSubmit, onChange }) {
         />
         <button
           type="submit"
-          className={`signupBtn ${
-            isIdInputValid && isPwInputValid ? 'signupBtnLive' : ''
-          }`}
+          className={`signupBtn ${isInputValid ? 'signupBtnLive' : ''}`}
+          disabled={!isInputValid}
         >
           회원가입
         </button>

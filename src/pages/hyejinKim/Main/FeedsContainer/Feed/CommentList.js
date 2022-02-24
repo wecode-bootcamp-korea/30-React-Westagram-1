@@ -1,28 +1,19 @@
 import Comment from './Comment';
-import './CommentList.scss';
 
+// 스타일이 없는 div는 <>로 처리한다.
+// commentList.scss 삭제
 function CommentList({ commentList, feedCommentList }) {
   return (
-    <div className="commentList">
+    <>
       {feedCommentList.map(feedComment => {
-        return (
-          <Comment
-            key={feedComment.id}
-            name={feedComment.userName}
-            comment={feedComment.content}
-          />
-        );
+        const { id, userName, content } = feedComment;
+        return <Comment key={id} name={userName} comment={content} />;
       })}
       {commentList.map(comment => {
-        return (
-          <Comment
-            key={comment.id}
-            name={comment.userName}
-            comment={comment.content}
-          />
-        );
+        const { id, userName, content } = comment;
+        return <Comment key={id} name={userName} comment={content} />;
       })}
-    </div>
+    </>
   );
 }
 

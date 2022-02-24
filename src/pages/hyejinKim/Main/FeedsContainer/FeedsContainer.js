@@ -18,18 +18,29 @@ function FeedsContainer() {
     <main className="feedsContainer">
       <div className="feeds">
         {feedList.map(feed => {
+          const {
+            id,
+            userName,
+            address,
+            feedImg,
+            likeUserImg,
+            firstLikeUser,
+            likeCount,
+            content,
+            feedCommentList,
+          } = feed;
           return (
             <Feed
-              key={feed.id}
-              userName={feed.userName}
-              address={feed.address}
-              profileImg={feed.feedImg}
-              likeUserImg={feed.likeUserImg}
-              firstLikeUser={feed.firstLikeUser}
-              likeCount={feed.likeCount}
-              content={feed.content}
-              feedImg={feed.feedImg}
-              feedCommentList={feed.feedCommentList}
+              key={id}
+              userName={userName}
+              address={address}
+              profileImg={feedImg}
+              likeUserImg={likeUserImg}
+              firstLikeUser={firstLikeUser}
+              likeCount={likeCount}
+              content={content}
+              feedImg={feedImg}
+              feedCommentList={feedCommentList}
             />
           );
         })}

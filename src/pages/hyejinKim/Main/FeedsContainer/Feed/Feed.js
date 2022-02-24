@@ -19,7 +19,8 @@ function Feed({
 
   const [comment, setComment] = useState('');
   const [commentList, setCommentList] = useState([]); // 댓글 내용만 모아놓은 배열
-  let ref = useRef();
+  const ref = useRef();
+  const isCommentValid = comment.length >= 1;
   let strs = ''; // 인풋 입력값
 
   const getComment = e => {
@@ -29,9 +30,9 @@ function Feed({
 
   const addComment = e => {
     e.preventDefault();
-    let id = commentList.length + 1;
-    let userName = `test04`;
-    let content = comment;
+    const id = commentList.length + 1;
+    const userName = `test04`;
+    const content = comment;
     setCommentList([...commentList, { id, userName, content }]);
     // 인풋 초기화
     setComment('');
@@ -102,11 +103,9 @@ function Feed({
           ref={ref}
         />
         <button
-          className={`commentBtn ${
-            comment.length >= 1 ? 'commentBtnLive' : ''
-          }`}
+          className={`commentBtn ${isCommentValid ? 'commentBtnLive' : ''}`}
           type="submit"
-          disabled={!(comment.length >= 1)}
+          disabled={!isCommentValid}
         >
           게시
         </button>
