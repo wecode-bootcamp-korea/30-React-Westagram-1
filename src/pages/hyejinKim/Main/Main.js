@@ -1,8 +1,14 @@
+import Nav from '../../../components/Nav/Nav';
+import FeedsContainer from './FeedsContainer/FeedsContainer';
 import './Main.scss';
-import '../../../styles/variables.scss';
 
 function Main() {
-  return <></>;
+  return (
+    <div className="main">
+      <Nav />
+      <FeedsContainer />
+    </div>
+  );
 }
 
 export default Main;

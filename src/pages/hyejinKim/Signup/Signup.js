@@ -1,36 +1,31 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginForm from './LoginForm';
-import './Login.scss';
+import SignupForm from './SignupForm';
+import './Signup.scss';
 
 // 질문
 // 1. 현재 state를 가져오는 경우는 언제인지? 콜백함수가 인자로 들어오면??
 // 2. 제어 컴포넌트랑 무슨 차이지?
 
-function Login() {
+function Signup() {
   const navigate = useNavigate();
-  const [loginValues, setLoginValues] = useState({
+  const [signupValues, setSignupValues] = useState({
     id: '',
     pw: '',
   });
 
   const handleInputValue = e => {
     const { name, value } = e.target;
-    setLoginValues({ ...loginValues, [name]: value });
-    // 함수형 state
-    // 기존 스테이트에 값을 더할 때 쓴다.
-    // 계산된 속성명
-    // 1) 함수와 구분하기 위해 리턴값을 ()로 감싼다.
-    // 2) 프로퍼티는 []로 감싼다
+    setSignupValues({ ...signupValues, [name]: value });
   };
 
-  const sendLoginInfo = e => {
+  const sendSignupInfo = e => {
     e.preventDefault();
-    fetch('http://10.58.6.223:8000/users/login', {
+    fetch('http://10.58.6.223:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        email: loginValues.id,
-        password: loginValues.pw,
+        email: signupValues.id,
+        password: signupValues.pw,
       }),
     })
       .then(response => response.json())
@@ -51,14 +46,14 @@ function Login() {
   };
 
   return (
-    <div className="login">
-      <LoginForm
-        loginValues={loginValues}
-        onSubmit={sendLoginInfo}
+    <div className="signup">
+      <SignupForm
+        signupValues={signupValues}
+        onSubmit={sendSignupInfo}
         onChange={handleInputValue}
       />
     </div>
   );
 }
 
-export default Login;
+export default Signup;

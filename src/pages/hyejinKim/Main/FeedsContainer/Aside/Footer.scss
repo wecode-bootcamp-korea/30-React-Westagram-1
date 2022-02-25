@@ -1,0 +1,30 @@
+.footer {
+  margin-top: 10px;
+  color: #a2a2a2;
+  font-size: 14px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 340px;
+
+    .footerList {
+      padding: 3px 0;
+
+      .footerLink {
+        display: inline-block;
+        color: #a2a2a2;
+        text-decoration: none;
+      }
+    }
+
+    // 마지막 자식 Li만 . 을 붙이지 않는다.
+    .footerList:not(:last-child)::after {
+      content: '\00a0·\00a0';
+    }
+  }
+
+  .copyright {
+    margin-top: 10px;
+  }
+}

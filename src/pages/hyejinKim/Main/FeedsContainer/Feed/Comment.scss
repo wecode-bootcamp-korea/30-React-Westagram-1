@@ -1,0 +1,25 @@
+.comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .commentUser {
+    margin-right: 5px;
+  }
+
+  .commentLikeBtn {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+  }
+
+  .commentLikeBtn-white {
+    background-image: url('../../../../../assets/images/hyejinKim/heart_like.png');
+    background-size: cover;
+  }
+
+  .commentLikeBtn-color {
+    background-image: url('../../../../../assets/images/hyejinKim/heart_like_color.png');
+    background-size: cover;
+  }
+}

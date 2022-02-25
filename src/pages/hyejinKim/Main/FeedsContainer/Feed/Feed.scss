@@ -1,0 +1,134 @@
+.feed {
+  background-color: white;
+  border: 1px solid #e9ecef;
+
+  b {
+    font-weight: 600;
+  }
+
+  .profileContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+
+    .dotMenu {
+      width: 25px;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 35px;
+        border-radius: 100px;
+      }
+
+      .profile-info {
+        padding-left: 15px;
+        font-size: 12px;
+
+        .profile-id {
+          font-weight: bold;
+        }
+
+        .profile-bottom {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  .feedImage {
+    img {
+      width: 100%;
+    }
+  }
+
+  .feedImageBottom {
+    padding: 10px 20px;
+
+    .feedMenu {
+      display: flex;
+      justify-content: space-between;
+
+      img {
+        height: 25px;
+      }
+
+      .feedMenu-left {
+        img,
+        div {
+          margin-right: 10px;
+        }
+        .postLikeBtn {
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+        }
+        .postLikeBtn-white {
+          background-image: url('../../../../../assets/images/hyejinKim/heart_like.png');
+          background-size: cover;
+        }
+        .postLikeBtn-color {
+          background-image: url('../../../../../assets/images/hyejinKim/heart_like_color.png');
+          background-size: cover;
+        }
+      }
+    }
+
+    .likeCount {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
+
+      img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 100%;
+      }
+    }
+
+    .postArea {
+      .morePost {
+        display: inline-block;
+        margin-left: 5px;
+        color: #a2a2a2;
+      }
+    }
+
+    .postTime {
+      color: #a2a2a2;
+      font-weight: bold;
+    }
+  }
+
+  .commentWrite {
+    display: flex;
+    padding: 10px 5px 10px 20px;
+    border: 1px solid #e9ecef;
+
+    .commentInput {
+      flex: 9;
+      border: none;
+      outline: none;
+    }
+
+    .commentBtn {
+      flex: 1;
+      border: none;
+      color: #0095f6;
+      background-color: white;
+      font-weight: bold;
+      opacity: 0.5;
+      cursor: 'default';
+    }
+
+    .commentBtnLive {
+      opacity: 1;
+      cursor: 'pointer';
+    }
+  }
+}

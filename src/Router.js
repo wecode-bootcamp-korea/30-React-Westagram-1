@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginPark from './pages/cheoljinPark/Login/Login';
 import MainPark from './pages/cheoljinPark/Main/Main';
 
+import SignupKim from './pages/hyejinKim/Signup/Signup';
 import LoginKim from './pages/hyejinKim/Login/Login';
 import MainKim from './pages/hyejinKim/Main/Main';
 
@@ -19,6 +20,7 @@ function Router() {
       <Routes>
         <Route path="/login-kim" element={<LoginKim />} />
         <Route path="/main-kim" element={<MainKim />} />
+        <Route path="/signup-kim" element={<SignupKim />} />
 
         <Route path="/login-park" element={<LoginPark />} />
         <Route path="/main-park" element={<MainPark />} />
