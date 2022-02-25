@@ -22,17 +22,19 @@ function Feed({
   const isCommentValid = comment.length >= 1;
 
   const getComment = e => {
-    setComment(comment);
+    setComment(e.target.value);
   };
 
   const addComment = e => {
     e.preventDefault();
-    const id = commentList.length + 1;
+    const id = feedCommentList.length + 1;
     const userName = `test04`;
     const content = comment;
     setCommentList([...commentList, { id, userName, content }]);
     setComment(''); // 인풋 초기화
   };
+
+  const deleteComment = e => {};
 
   return (
     <article className="feed">
