@@ -1,0 +1,22 @@
+.login {
+  border: 2px solid #ccc;
+  padding: 40px 75px 75px 75px;
+  width: 600px;
+  height: 700px;
+  margin: 250px auto;
+
+  .logo {
+    font-family: 'Lobster', cursive;
+    font-size: 80px;
+    margin-bottom: 70px;
+    text-align: center;
+  }
+
+  .search-passwd {
+    text-align: center;
+    font-size: 18px;
+    padding: inherit;
+    vertical-align: bottom;
+    margin-top: 100px;
+  }
+}

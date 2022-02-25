@@ -1,0 +1,42 @@
+[
+  {
+    "userName": "Bueong",
+    "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  },
+  {
+    "userName": "Bueong",
+    "comment": "Curabitur sit amet enim accumsan, viverra turpis eu, sodales lacus."
+  },
+  {
+    "userName": "Stella",
+    "comment": "Suspendisse ac magna blandit, fringilla eros vehicula, eleifend eros."
+  },
+  {
+    "userName": "Stella",
+    "comment": "Nam ut fermentum sapien, nec feugiat urna."
+  },
+  {
+    "userName": "Bueong",
+    "comment": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
+  },
+  {
+    "userName": "SungHoon",
+    "comment": "Sed a scelerisque erat, vel fermentum purus."
+  },
+  {
+    "userName": "SungHoon",
+    "comment": "Maecenas porta ac arcu quis dignissim."
+  },
+  {
+    "userName": "SungHoon",
+    "comment": "Donec dignissim quam at odio dignissim, quis molestie ligula faucibus."
+  },
+  {
+    "userName": "LeeYuan",
+    "comment": "Aenean semper, magna suscipit iaculis ultricies, metus arcu accumsan magna,"
+  },
+  {
+    "userName": "LeeYuan",
+    "comment": "in ultricies risus nibh vel erat. Praesent tincidunt odio id magna consequat, quis mattis risus efficitur. "
+  }
+]
