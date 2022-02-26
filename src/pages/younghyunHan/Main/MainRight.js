@@ -43,7 +43,7 @@ function MainRight() {
             <img
               alt="친구3"
               className="friendThree"
-              src="https://media.istockphoto.com/photos/woman-walking-on-a-path-by-the-sea-holding-a-friends-hand-picture-id1288078486?b=1&k=20&m=1288078486&s=170667a&w=0&h=_Hh6hjBsu4hxPhphKow6kk8YHaqtqYFCRRsadwnvRRY="
+              src="https://images.unsplash.com/photo-1587502624372-45627391a31f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxzZWFyY2h8MXx8c2VhfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60"
             />
             <div>
               <div className="friendNameThree">hyukyc</div>

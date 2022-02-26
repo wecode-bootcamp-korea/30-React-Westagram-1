@@ -1,9 +1,9 @@
-import './Main.scss';
+import { useState, useEffect } from 'react';
 import Nav from '../../../components/Nav/Nav';
-import '../../../styles/variables.scss';
 import Feed from './Feed';
 import MainRight from './MainRight';
-import { useState, useEffect } from 'react';
+import '../../../styles/variables.scss';
+import './Main.scss';
 
 function Main() {
   const [articles, setArticles] = useState([]);

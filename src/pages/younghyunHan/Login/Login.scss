@@ -40,6 +40,17 @@
       font-size: 20px;
     }
 
+    .loginButton {
+      background-color: blue;
+      opacity: 0.5;
+      cursor: 'default';
+    }
+
+    .loginBtnLive {
+      opacity: 1;
+      cursor: 'pointer';
+    }
+
     button {
       width: 100%;
       margin-bottom: 160px;
