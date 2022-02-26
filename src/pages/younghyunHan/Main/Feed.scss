@@ -1,0 +1,132 @@
+.feed {
+  background-color: white;
+  margin-bottom: 50px;
+
+  .feedTop {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+
+    .feedTopOne {
+      display: flex;
+      align-items: center;
+
+      .profileLogo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 35px;
+        width: 35px;
+        margin-right: 10px;
+        color: white;
+        background-color: black;
+        border-radius: 50%;
+        font-size: 7px;
+        font-weight: bold;
+        overflow: hidden; // 부모 div만큼 이미지 자름
+
+        .profileLogoImg {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; // 가로, 세로 비율이 안 맞으면 딱 맞게 안 찌그러지게 맞춰줌.
+        }
+      }
+
+      .profileNameOne {
+        margin-bottom: 0px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+
+      .profileNameTwo {
+        color: #a3a49a;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+
+    .fa-ellipsis-h {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+  }
+
+  .feedImg {
+    width: 100%;
+    height: 500px;
+  }
+
+  .feedThree {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 25px;
+
+    .fa-heart,
+    .fa-comment {
+      margin-right: 10px;
+    }
+  }
+
+  .feedFour {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px 10px 10px;
+
+    .man {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      border-radius: 50%;
+    } // 위 코드 처럼 하려면 div로 이미지 한번 더 감써서 그 div에 overflow:hidden 주고
+    // img파일에 width: 100%, height: 100%, object-fit: cover주면 됨
+
+    .feedFourWord,
+    .feedFourWordTwo {
+      font-weight: bold;
+    }
+  }
+
+  .feedFive {
+    padding: 0px 10px 3px 10px;
+
+    .feedFiveWord {
+      font-weight: bold;
+    }
+  }
+
+  .comment {
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+  }
+
+  .postTime {
+    display: inline-block;
+    padding: 10px 10px 15px 10px;
+    color: #9c9c9c;
+  }
+
+  .commentSection {
+    position: relative;
+
+    .comment {
+      width: 100%;
+      padding: 15px 10px;
+      border: 1px solid #f3f3f3;
+    }
+
+    .postButton {
+      position: absolute;
+      bottom: 13px;
+      right: 20px;
+      color: #c5e1fc;
+      background-color: white;
+      border: 1px solid white;
+      font-size: 15px;
+    }
+  }
+}
